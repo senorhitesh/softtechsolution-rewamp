@@ -6,13 +6,13 @@ const MainTextContent = () => {
   return (
     <>
       {" "}
-      <p className="text-neutral-400 flex gap-1 overflow-hidden uppercase text-sm tracking-widest mb-4">
+      <p className="text-neutral-400  flex gap-1 overflow-hidden uppercase text-[10px] tracking-widest mb-4">
         {["EMPOWERING", "FINANCIAL", "INNOVATION"].map((word, i) => (
           <GlideText key={word} text={word} delay={i * 0.1} />
         ))}
       </p>
       <h1 className="text-4xl text-center  font-bold mb-6 text-gray-800">
-        <span className="relative space-x-1">
+        <span className="relative  space-x-1">
           {/* We Support{" "} */}
           {["We", "Support"].map((word, i) => (
             <GlideText key={word} text={word} delay={i * 0.1} />

@@ -14,7 +14,7 @@ export default function CosmicToggle({
         type="checkbox"
         className="hidden"
         checked={checked}
-        // onChange={() => setChecked(!checked)}
+        onChange={() => setChecked(true)}
       />
       <div
         className={`
