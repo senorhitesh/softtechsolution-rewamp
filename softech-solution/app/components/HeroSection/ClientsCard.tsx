@@ -14,7 +14,7 @@ const ClientCard = () => {
     <motion.div
       ref={ref}
       initial={{
-        y: 40,
+        y: 20,
         scale: 0.92,
         opacity: 0,
         filter: "blur(8px)",
@@ -27,8 +27,6 @@ const ClientCard = () => {
       }}
       transition={{
         delay: 1.5,
-        type: "spring",
-        stiffness: 120,
         damping: 14,
         mass: 0.8,
       }}
