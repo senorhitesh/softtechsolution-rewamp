@@ -22,7 +22,7 @@ export default function CosmicToggle({
         transition-all duration-300 ease-in-out
         ${
           checked
-            ? "bg-gradient-to-br from-[#550de6cc] to-[#8a2be2] border-2 border-transparent"
+            ? "bg-gradient-to-br from-brand2 to-[#8a2be2] border-2 border-transparent"
             : "bg-gray-200 border-2 border-indigo-200"
         }
       `}
