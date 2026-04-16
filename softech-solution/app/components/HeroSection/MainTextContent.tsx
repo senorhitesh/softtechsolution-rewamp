@@ -63,9 +63,9 @@ const MainTextContent = () => {
         competitive value.
       </motion.p>
       <div className="mt-6">
-        <button className="bg-brand2 text-white text-sm  gap-1 flex items-center px-6 py-2 rounded-full">
-          Contact Us <ArrowUpRightIcon size={20} />
-        </button>{" "}
+        <button className="bg-brand2/90 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold gap-2 flex items-center px-8 py-3 rounded-full hover:bg-brand2 transition-all shadow-lg">
+          Contact Us <ArrowUpRightIcon size={18} />
+        </button>
       </div>
     </>
   );
