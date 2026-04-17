@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
+import { Download } from "lucide-react";
 
 const InstallationCard = () => {
   const [value, setValue] = useState(0);
@@ -16,7 +17,7 @@ const InstallationCard = () => {
   }, [isInView]);
 
   return (
-    <div className="absolute left-20 top-20 perspective-[1000px]">
+    <div className="absolute overflow-hidden left-20 top-20 perspective-[1000px]">
       <motion.div
         ref={ref}
         initial={{

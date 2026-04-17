@@ -6,12 +6,12 @@ const MainTextContent = () => {
   return (
     <>
       {" "}
-      <p className="text-neutral-400  flex gap-1 overflow-hidden uppercase text-[10px] tracking-widest mb-4">
+      <p className="text-neutral-400 text-left flex gap-1 overflow-hidden uppercase text-[10px] tracking-widest mb-4">
         {["EMPOWERING", "FINANCIAL", "INNOVATION"].map((word, i) => (
           <GlideText key={word} text={word} delay={i * 0.1} />
         ))}
       </p>
-      <h1 className="text-4xl text-center  font-bold mb-6 text-gray-800">
+      <h1 className="text-4xl text-left  font-bold mb-6 text-gray-800">
         <span className="relative  space-x-1">
           {/* We Support{" "} */}
           {["We", "Support"].map((word, i) => (
@@ -56,7 +56,7 @@ const MainTextContent = () => {
       <motion.p
         initial={{ filter: "blur(10px)" }}
         animate={{ filter: "blur(0px)" }}
-        className="text-sm max-w-xl text-center text-neutral-500"
+        className="text-sm max-w-xl text-left text-neutral-500"
       >
         At SOFT-TECH Solutions, we don’t just deliver projects on time, we build
         interactive, long-term partnerships based on trust, accessibility, and
