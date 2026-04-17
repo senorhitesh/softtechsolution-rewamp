@@ -16,28 +16,18 @@ const ClientCard = () => {
   }, [isInView]);
 
   return (
-    <div className="absolute left-20 bottom-20 perspective-[1000px]">
+    <div className=" w-full left-20 bottom-20 perspective-[1000px]">
       <motion.div
         ref={ref}
         initial={{
-          y: 20,
           scale: 0.9,
           opacity: 0,
-          rotateX: -15,
-          rotateY: 20,
-          filter: "blur(10px)",
         }}
         animate={{
-          y: [0, -10, 0],
           scale: 1,
           opacity: 1,
-          rotateX: 6,
-          rotateY: 12,
-          filter: "blur(0px)",
         }}
         whileHover={{
-          rotateX: 0,
-          rotateY: 0,
           scale: 1.05,
         }}
         transition={{
@@ -47,8 +37,7 @@ const ClientCard = () => {
         style={{
           transformStyle: "preserve-3d",
         }}
-        className="px-8 py-4 flex flex-col items-center justify-center 
-                   bg-green-50 ring-2 ring-green-200 rounded-lg shadow-md"
+        className="px-4 py-2 flex flex-col items-center justify-center  rounded-lg "
       >
         <div className="flex items-center">
           <AnimatedNumber

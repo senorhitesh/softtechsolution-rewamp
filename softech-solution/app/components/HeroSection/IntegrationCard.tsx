@@ -16,28 +16,18 @@ const IntegrationCard = () => {
   }, [isInView]);
 
   return (
-    <div className="absolute right-20 top-20 perspective-[1000px]">
+    <div className=" w-full right-20 top-20 perspective-[1000px]">
       <motion.div
         ref={ref}
         initial={{
-          y: 40,
           scale: 0.9,
           opacity: 0,
-          rotateX: 15,
-          rotateY: -20,
-          filter: "blur(10px)",
         }}
         animate={{
-          y: 0,
           scale: 1,
           opacity: 1,
-          rotateX: -8,
-          rotateY: -14,
-          filter: "blur(0px)",
         }}
         whileHover={{
-          rotateX: 0,
-          rotateY: 0,
           scale: 1.05,
         }}
         transition={{
@@ -47,8 +37,8 @@ const IntegrationCard = () => {
         style={{
           transformStyle: "preserve-3d",
         }}
-        className="px-8 py-4 bg-purple-50 ring-2 ring-purple-300 
-                   rounded-lg shadow-md flex flex-col items-center justify-center"
+        className="px-4 py-2   
+                   rounded-lg  flex flex-col items-center justify-center"
       >
         <div className="flex items-center">
           <AnimatedNumber

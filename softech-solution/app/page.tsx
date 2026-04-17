@@ -5,6 +5,7 @@ import Whyus from "@/app/components/WHYUS/Whyus";
 import ApplyStyleDock from "@/app/components/Global/DockComp";
 import Partners from "./components/OurPartners/Partners";
 import OurServices from "./components/Our Services/OurServices";
+import About from "./components/AboutUs/About";
 export default function Home() {
   return (
     <Suspense
@@ -19,9 +20,10 @@ export default function Home() {
         {/* <main className="flex flex-1 w-full mx-auto max-w-7xl flex-col items-center justify-between"> */}
         <Navbar />
         <HeroSection />
+        <About />
         <Whyus />
         <OurServices />
-        {/* <Partners /> */}
+        <Partners />
         {/* </main> */}
         {/* <ApplyStyleDock /> */}
       </div>

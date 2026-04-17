@@ -17,24 +17,16 @@ const InstallationCard = () => {
   }, [isInView]);
 
   return (
-    <div className="absolute overflow-hidden left-20 top-20 perspective-[1000px]">
+    <div className="w-full overflow-hidden left-20 top-20 perspective-[1000px]">
       <motion.div
         ref={ref}
         initial={{
-          y: 40,
           scale: 0.9,
           opacity: 0,
-          rotateX: 20,
-          rotateY: 15,
-          filter: "blur(10px)",
         }}
         animate={{
-          y: 0,
           scale: 1,
           opacity: 1,
-          rotateX: -10,
-          rotateY: 14,
-          filter: "blur(0px)",
         }}
         whileHover={{
           rotateX: 0,
@@ -48,8 +40,8 @@ const InstallationCard = () => {
         style={{
           transformStyle: "preserve-3d",
         }}
-        className="px-8 py-4 flex flex-col items-center justify-center 
-                   bg-orange-50 ring-2 ring-orange-200 rounded-lg shadow-md"
+        className="px-4 py-2 flex flex-col items-center justify-center 
+                     rounded-lg "
       >
         <div className="flex items-center">
           <AnimatedNumber
