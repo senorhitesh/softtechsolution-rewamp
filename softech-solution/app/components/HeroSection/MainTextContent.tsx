@@ -25,8 +25,8 @@ const MainTextContent = () => {
             <ArrowUpRightIcon className="text-white" />
           </motion.span>
         </span>
-        <span className="lg:text-7xl flex items-center justify-center md:text-5xl text-4xl">
-          <span className="leading-none text-shadow-[8px_4px_6px_rgba(103,103,103,0.1)]">
+        <span className="lg:text-7xl flex text-left items-center justify-center md:text-5xl text-4xl">
+          <span className="lg:leading-none text-left text-shadow-[8px_4px_6px_rgba(103,103,103,0.1)]">
             {/* GR */}
             {["GR"].map((word, i) => (
               <GlideText key={word} text={word} delay={i * 0.1} />
@@ -35,7 +35,7 @@ const MainTextContent = () => {
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="leading-none"
+            className="leading-none text-left"
           >
             <Toggle />
           </motion.span>
@@ -56,7 +56,7 @@ const MainTextContent = () => {
       <motion.p
         initial={{ filter: "blur(10px)" }}
         animate={{ filter: "blur(0px)" }}
-        className="text-sm max-w-xl text-left text-neutral-500"
+        className="text-sm max-w-sm text-left  text-neutral-500"
       >
         At SOFT-TECH Solutions, we don’t just deliver projects on time, we build
         interactive, long-term partnerships based on trust, accessibility, and

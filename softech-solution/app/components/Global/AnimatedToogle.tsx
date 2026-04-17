@@ -18,7 +18,7 @@ export default function CosmicToggle({
       />
       <div
         className={`
-        relative w-28 h-14 shadow-xl shadow-green-500/30 rounded-full flex items-center p-1 overflow-hidden
+        relative w-28 h-14 shadow-xl lg:scale-100 scale-70 shadow-green-500/30 rounded-full flex items-center p-1 overflow-hidden
         transition-all duration-300 ease-in-out
         ${
           checked

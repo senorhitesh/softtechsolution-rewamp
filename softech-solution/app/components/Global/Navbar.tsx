@@ -57,7 +57,6 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setOpenDropdown(null), 150);
   };
-
   return (
     <div className="fixed top-0 left-0 z-100000  right-0 ynflex justify-center p-6 pointer-events-none">
       <motion.header
@@ -157,7 +156,7 @@ export default function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="absolute top-full left-0 right-0 mt-4 bg-white rounded-[2rem] shadow-2xl border border-neutral-100 p-6 overflow-hidden md:hidden pointer-events-auto"
+              className="absolute top-full left-0 right-0 mt-4 bg-white m-5 rounded-[2rem] shadow-2xl border border-neutral-100 p-6 overflow-hidden md:hidden pointer-events-auto"
             >
               <div className="flex flex-col gap-4">
                 {NAV_ITEMS.map((item) => (
