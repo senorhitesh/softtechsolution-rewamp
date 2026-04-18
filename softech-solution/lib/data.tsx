@@ -1,14 +1,10 @@
 import Image from "next/image";
 import cms from "@/public/Orbit/cms.png";
-import voice from "@/public/Orbit/image copy.png";
 import {
   TvMinimal,
   ShieldCheck,
-  Landmark,
   UserCheck,
-  Code,
   SmartphoneNfc,
-  Bot,
   Workflow,
 } from "lucide-react";
 
@@ -81,7 +77,7 @@ const items: OrbitalItem[] = [
   },
   {
     id: "whatsapp-svg",
-    startDeg: 60,
+    startDeg: 90,
     radius: 150,
     content: (
       <div className="w-14 h-14 border border-neutral-200 rounded-full bg-white flex items-center justify-center shadow-sm">
