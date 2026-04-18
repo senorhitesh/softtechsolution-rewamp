@@ -7,6 +7,7 @@ import OurServices from "./components/Our Services/OurServices";
 import About from "./components/AboutUs/About";
 import Footer from "@/app/components/Global/Footer";
 import TrustSection from "./components/Global/TrustSection";
+import Blogs from "@/app/components/Blogs/Blogs";
 export default function Home() {
   return (
     <Suspense
@@ -17,7 +18,7 @@ export default function Home() {
       }
     >
       {" "}
-      <div className="flex flex-col flex-1 items-center justify-center bg-gray-50 font-sans">
+      <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
         {/* <main className="flex flex-1 w-full mx-auto max-w-7xl flex-col items-center justify-between"> */}
         <Navbar />
         <HeroSection />
@@ -27,6 +28,7 @@ export default function Home() {
         <TrustSection />
         {/* </main> */}
         {/* <ApplyStyleDock /> */}
+        <Blogs />
         <Footer />
       </div>
     </Suspense>

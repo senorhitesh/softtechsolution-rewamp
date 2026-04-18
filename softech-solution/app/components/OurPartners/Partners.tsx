@@ -102,39 +102,37 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
         const xOffset = (index - (partner.logos.length - 1) / 2) * 80;
 
         return (
-          <>
-            <motion.div
-              key={logo.id}
-              variants={{
-                rest: {
-                  opacity: 1,
-                  x: index * 40 - (partner.logos.length - 1) * 20,
-                  y: -75,
-                  scale: 0.5,
-                  rotate: 0,
+          <motion.div
+            key={logo.id}
+            variants={{
+              rest: {
+                opacity: 1,
+                x: index * 40 - (partner.logos.length - 1) * 20,
+                y: -75,
+                scale: 0.5,
+                rotate: 0,
+              },
+              hover: {
+                opacity: 1,
+                x: xOffset,
+                y: -85,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: index * 0.05,
                 },
-                hover: {
-                  opacity: 1,
-                  x: xOffset,
-                  y: -85,
-                  scale: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20,
-                    delay: index * 0.05,
-                  },
-                },
-              }}
-              className="absolute w-14 h-14 bg-white rounded-full group shadow-xl border border-gray-100 p-2 flex items-center justify-center "
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="w-full h-full object-contain"
-              />
-            </motion.div>
-          </>
+              },
+            }}
+            className="absolute w-14 h-14 bg-white rounded-full group shadow-xl border border-gray-100 p-2 flex items-center justify-center "
+          >
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
         );
       })}
 
