@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import Navbar from "./components/Global/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Whyus from "@/app/components/WHYUS/Whyus";
-import ApplyStyleDock from "@/app/components/Global/DockComp";
 import OurServices from "./components/Our Services/OurServices";
 import About from "./components/AboutUs/About";
 import Footer from "@/app/components/Global/Footer";
@@ -27,7 +26,6 @@ export default function Home() {
         {/* <Whyus /> */}
         <TrustSection />
         {/* </main> */}
-        {/* <ApplyStyleDock /> */}
         <Blogs />
         <Footer />
       </div>
