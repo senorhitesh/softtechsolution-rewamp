@@ -374,7 +374,7 @@ const OurServices = () => {
   const selected = services.find((s) => s.name === activeTab);
 
   return (
-    <div className="flex flex-col gap-6 p-8 w-full">
+    <div className="flex max-w-7xl mx-auto flex-col mt-16 gap-6 p-8 w-full">
       {/* Header */}
       <div>
         <p className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">

@@ -3,9 +3,10 @@ import Navbar from "./components/Global/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Whyus from "@/app/components/WHYUS/Whyus";
 import ApplyStyleDock from "@/app/components/Global/DockComp";
-import Partners from "./components/OurPartners/Partners";
 import OurServices from "./components/Our Services/OurServices";
 import About from "./components/AboutUs/About";
+import Footer from "@/app/components/Global/Footer";
+import TrustSection from "./components/Global/TrustSection";
 export default function Home() {
   return (
     <Suspense
@@ -21,11 +22,12 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <About />
-        <Whyus />
         <OurServices />
-        <Partners />
+        {/* <Whyus /> */}
+        <TrustSection />
         {/* </main> */}
         {/* <ApplyStyleDock /> */}
+        <Footer />
       </div>
     </Suspense>
   );

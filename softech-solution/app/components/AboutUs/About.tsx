@@ -80,7 +80,7 @@ const About = () => {
 
       {/* Floating Stats Bar */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[90%] max-w-5xl">
-        <div className="bg-white   rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-200 py-5 px-2 flex">
+        <div className="bg-white items-center  rounded-2xl shadow-md border border-gray-200 py-5 px-2 flex">
           <IntegrationCard /> <InstallationCard /> <StateCard /> <ClientCard />
         </div>
       </div>

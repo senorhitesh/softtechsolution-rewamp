@@ -51,11 +51,6 @@ const HeroSection = () => {
           </div> */}
         </motion.div>
       </div>
-
-      {/* Optional: Slider at bottom */}
-      {/* <div className="absolute bottom-10 w-full">
-        <InfiniteSliderBasic />
-      </div> */}
     </div>
   );
 };

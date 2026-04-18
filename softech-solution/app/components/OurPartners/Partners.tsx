@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-
 interface logoProps {
   id: number;
   src: string;
@@ -9,12 +8,14 @@ interface logoProps {
 interface PartnerProps {
   id: number;
   name: string;
+  description: string;
   logos: logoProps[];
 }
 const PARTNERS = [
   {
     id: 1,
-    name: "Telco Partners",
+    name: "Telecom Partners",
+    description: "Reliable solutions for telecom operations",
     logos: [
       {
         id: 1,
@@ -40,7 +41,8 @@ const PARTNERS = [
   },
   {
     id: 2,
-    name: "Digital IT Partners",
+    name: "Digital & IT Partners",
+    description: "Built for modern enterprise infrastructure",
     logos: [
       {
         id: 1,
@@ -66,7 +68,8 @@ const PARTNERS = [
   },
   {
     id: 3,
-    name: "NPCI Enabled Partners",
+    name: "NPCI  Partners",
+    description: "Trusted for compliant payment solutions",
     logos: [
       {
         id: 1,
@@ -95,38 +98,43 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
       whileHover="hover"
       animate="rest"
     >
-      {/* BACKGROUND LOGOS - Hidden behind the card initially */}
       {partner.logos.map((logo, index) => {
-        // Calculate spread positions (Fan out effect)
         const xOffset = (index - (partner.logos.length - 1) / 2) * 80;
 
         return (
-          <motion.div
-            key={logo.id}
-            variants={{
-              rest: { opacity: 0, x: 0, y: 0, scale: 0.5, rotate: 0 },
-              hover: {
-                opacity: 1,
-                x: xOffset,
-                y: -80, // Moves them up behind the card
-                scale: 1,
-                // rotate: index % 2 === 0 ? 10 : -10,
-                transition: {
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20,
-                  delay: index * 0.05,
+          <>
+            <motion.div
+              key={logo.id}
+              variants={{
+                rest: {
+                  opacity: 1,
+                  x: index * 40 - (partner.logos.length - 1) * 20,
+                  y: -75,
+                  scale: 0.5,
+                  rotate: 0,
                 },
-              },
-            }}
-            className="absolute w-14 h-14 bg-white rounded-full shadow-xl border border-gray-100 p-2 flex items-center justify-center overflow-hidden"
-          >
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
+                hover: {
+                  opacity: 1,
+                  x: xOffset,
+                  y: -85,
+                  scale: 1,
+                  transition: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    delay: index * 0.05,
+                  },
+                },
+              }}
+              className="absolute w-14 h-14 bg-white rounded-full group shadow-xl border border-gray-100 p-2 flex items-center justify-center "
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </>
         );
       })}
 
@@ -145,7 +153,7 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
           {partner.name}
         </h3>
         <p className="text-xs text-purple-600 font-medium mt-1">
-          PROVEN EXPERIENCE
+          {partner.description}
         </p>
 
         {/* Bottom indicator line */}
@@ -161,9 +169,10 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
 const Partners = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-12 flex flex-col items-center">
-      <h2 className="font-bold text-md uppercase tracking-widest mb-6 text-gray-800">
-        Our Partners
-      </h2>
+      <p className="text-neutral-500 font-medium mb-12">
+        {" "}
+        Our Trusted Partners
+      </p>
       <div className="flex flex-wrap gap-20 justify-center">
         {PARTNERS.map((partner) => (
           <PartnerCard key={partner.id} partner={partner} />
