@@ -1,7 +1,6 @@
 import React from "react";
 import Partners from "../OurPartners/Partners";
-import InfiniteSliderBasic from "../HeroSection/InfiniteSlider";
-import { TooltipProvider } from "@base-ui/react";
+import InfiniteSliderBasic from "./InfiniteSlider";
 const TrustSection = () => {
   return (
     <div className="flex flex-col items-center justify-center">

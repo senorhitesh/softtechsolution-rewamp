@@ -18,14 +18,12 @@ export default function Home() {
     >
       {" "}
       <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
-        {/* <main className="flex flex-1 w-full mx-auto max-w-7xl flex-col items-center justify-between"> */}
         <Navbar />
         <HeroSection />
         <About />
         <OurServices />
         {/* <Whyus /> */}
         <TrustSection />
-        {/* </main> */}
         <Blogs />
         <Footer />
       </div>

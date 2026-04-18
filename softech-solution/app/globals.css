@@ -226,3 +226,19 @@ background-size: 35px 35px, 35px 35px, 17.5px 17.5px, 17.5px 17.5px;
   transform: translateZ(0) scale(1.7);
 }
 
+
+
+::selection{
+  background-color: #1d1d1d;
+  color:white
+}
+
+/* Line Pattern */
+/* <div
+className="absolute inset-0 opacity-[0.03] pointer-events-none"
+style={{
+backgroundImage:
+"repeating-linear-gradient(45deg,#64748b 0,#64748b 1px,transparent 0,transparent 50%)",
+backgroundSize: "10px 10px",
+}}
+/> */

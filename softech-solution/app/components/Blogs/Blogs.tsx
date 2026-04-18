@@ -10,7 +10,7 @@ import BlogCard from "./BlogCard";
 
 const Blogs = () => {
   return (
-    <section className="w-full py-12 px-4 max-w-7xl mx-auto">
+    <section className="w-full border-t border-neutral-500 border-dashed py-12 px-4 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
         {/* Left Section: Header */}
         <div className="flex flex-col justify-between space-y-6">

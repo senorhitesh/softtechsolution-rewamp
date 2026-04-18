@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import IntegrationCard from "../HeroSection/IntegrationCard";
-import InstallationCard from "../HeroSection/InstallationCard";
-import ClientCard from "../HeroSection/ClientsCard";
-import StateCard from "../HeroSection/StateCard";
+import IntegrationCard from "./IntegrationCard";
+import InstallationCard from "./InstallationCard";
+import ClientCard from "./ClientsCard";
+import StateCard from "./StateCard";
 
 const About = () => {
   return (
