@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -226,8 +228,6 @@ background-size: 35px 35px, 35px 35px, 17.5px 17.5px, 17.5px 17.5px;
   transform: translateZ(0) scale(1.7);
 }
 
-
-
 ::selection{
   background-color: #1d1d1d;
   color:white
@@ -242,3 +242,55 @@ backgroundImage:
 backgroundSize: "10px 10px",
 }}
 /> */
+
+@utility link {
+    @apply decoration-1 underline-offset-3 hover:underline;
+}
+
+@utility link-underline {
+    @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
+}
+
+@utility prose-ncdai {
+    @apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold;
+    @apply prose-a:font-normal prose-a:wrap-break-word prose-a:text-foreground prose-a:link-underline;
+    @apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none;
+    @apply prose-strong:font-medium;
+}
+
+.text-rotate {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.text-rotate-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-rotate-word {
+  display: inline-flex;
+}
+
+.text-rotate-lines {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.text-rotate-element {
+  display: inline-block;
+}
+
+.text-rotate-space {
+  white-space: pre;
+}

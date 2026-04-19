@@ -166,7 +166,7 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
 
 const Partners = () => {
   return (
-    <div className="min-h-screen bg-gray-50 p-12 flex flex-col items-center">
+    <div className="bg-gray-50 p-12 flex flex-col items-center">
       <p className="text-neutral-500 font-medium mb-12">
         {" "}
         Our Trusted Partners

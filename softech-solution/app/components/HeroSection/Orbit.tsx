@@ -16,9 +16,8 @@ export default function RotatingOrbit() {
       `}</style>
 
         {/* Crosshair */}
-        <div className="absolute top-1/2 left-0 right-0 h-px border-t border-dashed border-neutral-300 pointer-events-none" />
-        <div className="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-neutral-300 pointer-events-none" />
-
+        <div className="absolute top-1/2 left-0 right-0 h-px border-t border-dashed border-slate-200 pointer-events-none" />
+        <div className="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-slate-200 pointer-events-none" />
         {/* Guide rings */}
         {[150, 248].map((r) => (
           <div

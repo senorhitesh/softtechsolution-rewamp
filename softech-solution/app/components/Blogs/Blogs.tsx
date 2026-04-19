@@ -7,17 +7,48 @@ import {
 } from "@/components/motion-primitives/carousel";
 import PositionAwareButton from "../Global/AnimatedButton";
 import BlogCard from "./BlogCard";
-
+import RotatingText from "@/app/components/Global/Rotating";
 const Blogs = () => {
   return (
-    <section className="w-full border-t border-neutral-500 border-dashed py-12 px-4 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+    <section
+      style={{
+        clipPath: "polygon(100% 9%, 100% 100%, 54% 100%, 0 100%, 0 0, 95% 0)",
+      }}
+      className="w-full mb-18 relative"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg,#000 0,#64748b 1px,transparent 0,transparent 50%)",
+          backgroundSize: "15px 15px",
+        }}
+      />
+      <div className="grid max-w-7xl mx-auto  relative grid-cols-1 lg:grid-cols-3 py-12 px-8 gap-12 items-center">
         {/* Left Section: Header */}
         <div className="flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <h2 className="text-4xl font-bold tracking-tight text-neutral-900">
-              Our Latest <span className="text-brand2">Blogs.</span>
+            <h2 className="text-4xl flex flex-wrap items-center gap-3 font-bold tracking-tight text-neutral-900">
+              Our Latest{" "}
+              <span className="text-brand2">
+                <RotatingText
+                  texts={["Blogs !", "Case Studies !"]}
+                  mainClassName="px-3 w-fit sm:px-2 md:px-3 bg-brand2 text-white overflow-hidden py-0.5 sm:py-1 md:py-2 text-[24px] justify-center rounded-lg"
+                  staggerFrom="first"
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.015}
+                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={3000}
+                  splitBy="characters"
+                  auto
+                  loop
+                />
+              </span>
             </h2>
+
             <p className="text-lg text-neutral-500 leading-relaxed">
               Explore our thought-provoking content, from expert blogs to
               insightful webinars.
