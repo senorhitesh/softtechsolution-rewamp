@@ -21,7 +21,7 @@ const items: OrbitalItem[] = [
     startDeg: 0,
     radius: 248,
     content: (
-      <div className="flex gap-2 justify-center px-4 py-2 border transition bg-white ring-1 ring-purple-100 group border-neutral-200 rounded-full items-center shadow-sm hover:ring-purple-300">
+      <div className="flex gap-2 justify-center px-4 py-2 border transition bg-transparent backdrop-blur-xl ring-1 ring-purple-100 group border-neutral-200 rounded-full items-center shadow-sm hover:ring-purple-300">
         <p className="text-nowrap text-sm font-semibold text-neutral-800 transition group-hover:text-purple-700">
           Telco Services
         </p>
@@ -34,7 +34,7 @@ const items: OrbitalItem[] = [
     startDeg: 100,
     radius: 248,
     content: (
-      <div className="flex gap-2 justify-center px-4 py-2 border transition bg-white ring-1 ring-green-100 group border-neutral-200 rounded-full items-center shadow-sm hover:ring-green-300">
+      <div className="flex gap-2 justify-center px-4 py-2 border transition bg-transparent backdrop-blur-xl ring-1 ring-green-100 group border-neutral-200 rounded-full items-center shadow-sm hover:ring-green-300">
         <p className="text-nowrap text-sm font-semibold text-neutral-800 transition group-hover:text-green-700">
           NPCI Solutions
         </p>
@@ -47,7 +47,7 @@ const items: OrbitalItem[] = [
     startDeg: 360,
     radius: 248,
     content: (
-      <div className="flex gap-2 justify-center px-4 py-2 border transition bg-white ring-1 ring-red-100 group border-neutral-200 rounded-full items-center shadow-sm hover:ring-red-300">
+      <div className="flex gap-2 justify-center px-4 py-2 border transition bg-transparent backdrop-blur-xl ring-1 ring-red-100 group border-neutral-200 rounded-full items-center shadow-sm hover:ring-red-300">
         <p className="text-nowrap text-sm font-semibold text-neutral-800 transition group-hover:text-red-700">
           Cyber Compliance
         </p>
@@ -62,7 +62,7 @@ const items: OrbitalItem[] = [
     startDeg: 210,
     radius: 150,
     content: (
-      <div className="w-14 h-14 border border-neutral-200 rounded-full bg-white flex items-center justify-center shadow-sm">
+      <div className="w-14 h-14 border border-neutral-200 rounded-full bg-transparent backdrop-blur-xl flex items-center justify-center shadow-sm">
         <div className="relative scale-75 flex items-center justify-center h-10 w-10">
           <img
             src="https://images.icon-icons.com/2699/PNG/512/upi_logo_icon_170312.png"
@@ -80,7 +80,7 @@ const items: OrbitalItem[] = [
     startDeg: 90,
     radius: 150,
     content: (
-      <div className="w-14 h-14 border border-neutral-200 rounded-full bg-white flex items-center justify-center shadow-sm">
+      <div className="w-14 h-14 border border-neutral-200 rounded-full bg-transparent backdrop-blur-xl flex items-center justify-center shadow-sm">
         <svg
           width="25"
           height="25"
@@ -103,7 +103,7 @@ const items: OrbitalItem[] = [
     startDeg: 310,
     radius: 150,
     content: (
-      <div className="w-14 h-14 border border-neutral-200 rounded-full bg-white flex items-center justify-center shadow-sm">
+      <div className="w-14 h-14 border border-neutral-200 rounded-full bg-transparent backdrop-blur-xl flex items-center justify-center shadow-sm">
         <div className="relative scale-90 flex items-center justify-center h-10 w-10">
           <Image src={cms} alt="CMS" fill className="object-contain" />
         </div>

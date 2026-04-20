@@ -93,7 +93,7 @@ const PARTNERS = [
 const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
   return (
     <motion.div
-      className="relative flex items-center justify-center group"
+      className="relative col-span-1 flex items-center justify-center group"
       initial="rest"
       whileHover="hover"
       animate="rest"
@@ -166,12 +166,12 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
 
 const Partners = () => {
   return (
-    <div className="p-12 flex flex-col items-center">
+    <div className="p-12  w-full flex flex-col items-center">
       <p className="text-neutral-500 font-medium mb-12">
         {" "}
         Our Trusted Partners
       </p>
-      <div className="flex flex-wrap gap-20 justify-center">
+      <div className="   flex lg:flex-row md:flex-row flex-col gap-16 items-center  justify-center">
         {PARTNERS.map((partner) => (
           <PartnerCard key={partner.id} partner={partner} />
         ))}

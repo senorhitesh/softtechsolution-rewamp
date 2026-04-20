@@ -22,7 +22,7 @@ export default function RotatingOrbit() {
         {[150, 248].map((r) => (
           <div
             key={r}
-            className="absolute rounded-full pointer-events-none border border-dashed border-slate-200/70"
+            className="absolute rounded-full pointer-events-none border border-dashed border-slate-300/70"
             style={{ width: r * 2, height: r * 2 }}
           />
         ))}
@@ -33,7 +33,7 @@ export default function RotatingOrbit() {
           return (
             <div
               key={item.id}
-              className="orbit-arm absolute top-1/2 left-1/2 w-0 h-0"
+              className="orbit-arm absolute top-1/2  left-1/2 w-0 h-0"
               style={{ animationDelay: delay }}
             >
               <div className="absolute left-0" style={{ top: item.radius }}>
@@ -49,7 +49,7 @@ export default function RotatingOrbit() {
         })}
         <Tilt rotationFactor={8} isRevese>
           {/* Center hub */}
-          <div className="relative z-20">
+          <div className="relative ">
             <div className="absolute -inset-8 rounded-full bg-green-300/20 blur-2xl" />
             <div className="relative w-21 h-21 rounded-full bg-white flex items-center overflow-hidden justify-center shadow-2xl ring-1 ring-black/5">
               <Image

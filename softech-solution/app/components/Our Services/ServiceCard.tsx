@@ -56,13 +56,13 @@ const ServiceCard = ({
   return (
     <div className="group perspective-[1000px] w-full h-100">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 1, y: 20 }}
+        animate={{ rotateY: isFlipped ? 180 : 0 }} // 4. Animate based on state
         transition={{
-          duration: 0.1,
+          duration: 0.2,
         }}
-        whileHover={{ rotateY: 180 }}
-        className="relative w-full h-full transition-all duration-500 transform-3d"
+        onClick={handleFlip}
+        className="relative w-full h-full transition-all cursor-pointer duration-500 transform-3d"
       >
         {" "}
         {/* --- FRONT SIDE --- */}

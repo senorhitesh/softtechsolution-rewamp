@@ -5,8 +5,8 @@ import { WorkExperience } from "@/components/work-experience";
 export default function Journey() {
   return (
     <div className="max-w-7xl flex-col mx-auto flex items-center justify-center p-12">
-      <div className="relative w-fit px-7 flex items-center justify-center py-3 bg-brand2  overflow-hidden">
-        <p className="text-3xl text-white font-bold ">Our Journey</p>
+      <div className="relative w-fit   flex gap-2  justify-center   ">
+        <p className="text-3xl text-black font-bold ">Our Journey</p>
       </div>
       <div>
         <WorkExperience

@@ -1,11 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import IntegrationCard from "./IntegrationCard";
-import InstallationCard from "./InstallationCard";
-import ClientCard from "./ClientsCard";
-import StateCard from "./StateCard";
-
 const About = () => {
   return (
     <section className="relative w-full bg-[#1d1d1d] pt-20 pb-32 px-6 md:px-12 lg:px-24 overflow-visible">
@@ -24,13 +19,12 @@ const About = () => {
             <span className="text-[#3b82f6] uppercase tracking-[0.2em] text-xs font-bold">
               About Us
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Hi, We’re <span className="text-[#3b82f6]">SOFT-TECH</span>{" "}
-              Solutions
+            <h2 className=" lg:text-4xl font-bold text-white leading-tight">
+              Hi, We’re <span className="text-brand2">SOFT-TECH</span> Solutions
             </h2>
           </div>
 
-          <p className="text-base md:text-lg max-w-xl text-gray-400 leading-relaxed">
+          <p className="text-base text-md max-w-xl text-gray-400 leading-relaxed">
             A pioneer in delivering innovative fintech and telecom software
             solutions to banks and businesses worldwide. Empowering
             organizations to thrive in the digital age with a proven track
@@ -75,13 +69,6 @@ const About = () => {
               </p>
             </motion.div>
           </div>
-        </div>
-      </div>
-
-      {/* Floating Stats Bar */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[90%] max-w-5xl">
-        <div className="bg-white items-center  rounded-2xl shadow-md border border-gray-200 py-5 px-2 flex">
-          <IntegrationCard /> <InstallationCard /> <StateCard /> <ClientCard />
         </div>
       </div>
     </section>
