@@ -7,6 +7,7 @@ import About from "./components/AboutUs/About";
 import Footer from "@/app/components/Global/Footer";
 import TrustSection from "./components/Global/TrustSection";
 import Blogs from "@/app/components/Blogs/Blogs";
+import FinalCta from "@/app/components/FinalCta/FinalCta";
 export default function Home() {
   return (
     <Suspense
@@ -25,6 +26,7 @@ export default function Home() {
         <Whyus />
         <TrustSection />
         <Blogs />
+        <FinalCta />
         <Footer />
       </div>
     </Suspense>

@@ -27,7 +27,7 @@ const IndiaMap = () => {
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1000 1000"
-        className="w-full max-w-[800px] h-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+        className="w-full max-w-200 h-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
         initial="hidden"
         animate="visible"
       >
