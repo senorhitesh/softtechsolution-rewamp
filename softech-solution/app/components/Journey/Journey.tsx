@@ -1,11 +1,13 @@
 "use client";
-import { Calendar, CodeXmlIcon, LightbulbIcon } from "lucide-react";
+import { Calendar, LightbulbIcon } from "lucide-react";
 import type { ExperienceItemType } from "@/components/work-experience";
 import { WorkExperience } from "@/components/work-experience";
 export default function Journey() {
   return (
     <div className="max-w-7xl flex-col mx-auto flex items-center justify-center p-12">
-      <div className="relative  overflow-hidden"></div>
+      <div className="relative w-fit px-7 flex items-center justify-center py-3 bg-brand2  overflow-hidden">
+        <p className="text-3xl text-white font-bold ">Our Journey</p>
+      </div>
       <div>
         <WorkExperience
           className="w-full bg-transparent"

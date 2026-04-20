@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -58,7 +58,7 @@ export default function Navbar() {
     timeoutRef.current = setTimeout(() => setOpenDropdown(null), 150);
   };
   return (
-    <div className="fixed top-0 left-0 z-100000  right-0 ynflex justify-center p-6 pointer-events-none">
+    <div className="fixed top-0 left-0 z-100000  right-0 flex justify-center p-6 pointer-events-none">
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

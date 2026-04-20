@@ -17,7 +17,7 @@ export default function Home() {
       }
     >
       {" "}
-      <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
+      <div className="flex flex-col font-sans w-full overflow-x-hidden">
         <Navbar />
         <HeroSection />
         <About />

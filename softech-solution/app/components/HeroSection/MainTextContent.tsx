@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const MainTextContent = () => {
   return (
-    <div className="flex flex-col items-start max-w-lg">
+    <div className="flex flex-col items-center lg:items-start w-full max-w-2xl">
       {/* Subheading */}
       <div className="text-neutral-400 flex gap-2 overflow-hidden uppercase text-[12px] tracking-[0.2em] mb-4">
         {["EMPOWERING", "FINANCIAL", "INNOVATION"].map((word, i) => (

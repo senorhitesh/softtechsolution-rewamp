@@ -3,34 +3,39 @@ import { motion } from "framer-motion";
 import MainTextContent from "./MainTextContent";
 import BackgroundDecoration from "@/app/components/HeroSection/BackgroundDecoration";
 import OrbitalDashboard from "./Orbit";
+
 const HeroSection = () => {
   return (
-    <div className="flex items-center flex-col w-full relative min-h-screen justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* <BackgroundDecoration /> */}
 
       {/* Main Container */}
-      <div className="max-w-7xl w-full flex  lg:flex-row md:flex-row flex-col  z-10 px-6 sm:px-10   gap-10 items-center mx-auto h-full py-20">
-        {/* Left Section: Text Content */}
-        <motion.div
-          className="flex flex-col items-start c justify-center text-left w-full"
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          <MainTextContent />
-        </motion.div>
+      <div className="container mx-auto px-6 sm:px-10 z-10 py-12 lg:py-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-10">
+          {/* Left Section: Text Content */}
+          <motion.div
+            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <MainTextContent />
+          </motion.div>
 
-        {/* Right Section: Decorative Cards */}
-        <motion.div
-          className="relative w-full h-full min-h-125  hidden lg:flex items-center justify-center"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <OrbitalDashboard />
-        </motion.div>
+          {/* Right Section: Decorative Visual */}
+          <motion.div
+            className="relative w-full lg:w-1/2 flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="w-full h-full transform scale-75 sm:scale-90 lg:scale-100 transition-transform duration-500">
+              <OrbitalDashboard />
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

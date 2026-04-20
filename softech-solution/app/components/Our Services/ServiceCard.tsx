@@ -2,7 +2,7 @@
 import { SVGProps } from "react";
 import { motion } from "framer-motion";
 import { ArrowRightIcon, Mail, BookOpen } from "lucide-react";
-
+import { useState } from "react"; // 1. Added useState
 type Service = {
   id: number;
   title: string;
@@ -48,6 +48,11 @@ const ServiceCard = ({
   service: Service;
   index: number;
 }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
   return (
     <div className="group perspective-[1000px] w-full h-100">
       <motion.div
@@ -67,9 +72,7 @@ const ServiceCard = ({
             <div
               className="w-full h-40 rounded-lg flex items-center justify-center shrink-0"
               style={{ background: service.bg, color: service.color }}
-            >
-              {/* You can place an icon here later */}
-            </div>
+            ></div>
 
             {/* Title */}
             <p className="text-xl font-medium text-gray-900 leading-snug flex-1">
