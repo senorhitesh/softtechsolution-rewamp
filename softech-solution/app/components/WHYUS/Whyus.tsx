@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import StatsRow from "@/app/components/WHYUS/StatsRow";
 import card from "@/public/card.png";
 import Image from "next/image";
@@ -26,7 +23,7 @@ export default function WhyChooseUs() {
         }
       `}</style>
 
-      <section className="w-full max-w-5xl mx-auto px-4 py-14">
+      <section className="w-full max-w-7xl mx-auto px-4 py-14">
         {/* Header */}
         <p className="text-xs font-medium tracking-widest uppercase text-neutral-400 mb-2">
           Why we're the best

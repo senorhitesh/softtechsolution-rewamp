@@ -18,7 +18,7 @@ const HeroSection = () => {
           particleBaseSize={200}
           moveParticlesOnHover
           alphaParticles
-          disableRotation={false}
+          disableRotation={true}
           pixelRatio={1}
           className={""}
         />

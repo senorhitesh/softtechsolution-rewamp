@@ -17,7 +17,7 @@ const TrustSection = () => {
           {" "}
           <Partners />
         </div>
-        <Journey />
+        {/* <Journey /> */}
       </div>
     </div>
   );

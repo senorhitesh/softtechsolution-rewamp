@@ -67,7 +67,7 @@ const StatCard = ({
   return (
     <div className="bg-white border border-neutral-200 rounded-md p-4">
       <p className="text-xs text-neutral-500 mb-1">{label}</p>
-      <p className={`text-3xl font-bold ${color}`}>
+      <p className={`text-2xl font-bold ${color}`}>
         {value.toLocaleString()}
         {suffix}
       </p>

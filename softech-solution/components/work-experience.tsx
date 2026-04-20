@@ -127,39 +127,47 @@ export function ExperiencePositionItem({
       <CollapsibleTrigger
         className={cn(
           "group/experience-position not-prose block w-full text-left select-none",
-          "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/30",
+          "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-6 md:before:left-7 before:rounded-lg hover:before:bg-muted/30",
           "data-disabled:before:content-none",
+          "py-2 md:py-1.5",
         )}
       >
-        <div className="relative z-1 mb-1 flex items-center gap-3">
+        <div className="relative z-1 mb-1 flex items-start md:items-center gap-2 md:gap-3">
+          {/* Icon */}
           <div
             className={cn(
-              "flex size-6 shrink-0 items-center justify-center rounded-lg",
+              "flex shrink-0 items-center justify-center rounded-lg",
+              "size-5 md:size-6",
               "bg-muted text-muted-foreground",
               "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
-              "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+              "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 md:[&_svg:not([class*='size-'])]:size-4",
             )}
           >
             {position.icon ?? <BriefcaseBusinessIcon />}
           </div>
 
-          <h4 className="flex-1 text-base font-medium text-balance text-foreground">
+          {/* Title */}
+          <h4 className="flex-1 text-sm md:text-base font-medium leading-snug text-foreground break-words">
             {position.title}
           </h4>
         </div>
       </CollapsibleTrigger>
+
       <CollapsibleContent className="overflow-hidden">
         {position.description && (
-          <Prose className="pt-2 pl-9">
+          <Prose className="pt-2 pl-7 md:pl-9 text-sm md:text-base">
             <ReactMarkdown>{position.description}</ReactMarkdown>
           </Prose>
         )}
       </CollapsibleContent>
+
       {Array.isArray(position.skills) && position.skills.length > 0 && (
-        <ul className="not-prose flex flex-wrap gap-1.5 pt-3 pl-9">
+        <ul className="not-prose flex flex-wrap gap-1.5 pt-3 pl-7 md:pl-9">
           {position.skills.map((skill, index) => (
             <li key={index} className="flex">
-              <Skill>{skill}</Skill>
+              <Skill className="text-xs md:text-sm px-2 py-0.5 md:px-2.5 md:py-1">
+                {skill}
+              </Skill>
             </li>
           ))}
         </ul>

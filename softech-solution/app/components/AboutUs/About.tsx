@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 const About = () => {
   return (
-    <section className="relative w-full bg-[#1d1d1d] pt-20 pb-32 px-6 md:px-12 lg:px-24 overflow-visible">
+    <section className="relative w-full bg-[#1d1d1d]  rounded-b-[40px] pt-20 pb-32 px-6 md:px-12 lg:px-24 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-20 plus-pattern pointer-events-none" />
 
