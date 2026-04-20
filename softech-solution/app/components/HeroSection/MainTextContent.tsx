@@ -14,7 +14,7 @@ const MainTextContent = () => {
       </div>
 
       {/* Main Heading */}
-      <h1 className="text-6xl md:text-5xl text-4xl  leading-[1.1] font-bold mb-8 text-[#1a2b3b] flex flex-col items-start">
+      <h1 className="lg:text-6xl md:text-5xl text-4xl  leading-[1.1] font-bold mb-8 text-[#1a2b3b] flex flex-col items-start">
         <span className="flex items-center gap-4">
           <span className="flex gap-2">
             {["We", "Support"].map((word, i) => (
@@ -36,7 +36,7 @@ const MainTextContent = () => {
           initial={{ border: 0 }}
           animate={{ border: 1, borderColor: "#4ADE80" }}
           transition={{ delay: 1 }}
-          className="text-6xl md:text-5xl text-4xl relative  m-1 pl-2 pr-6   bg-green-100 tracking-tight"
+          className="lg:text-6xl md:text-5xl text-4xl relative  m-1 pl-2 pr-6   bg-green-100 tracking-tight"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -65,7 +65,7 @@ const MainTextContent = () => {
           Growth
         </motion.span>
 
-        <span className="flex gap-2">
+        <span className="flex gap-2 lg:text-6xl md:text-5xl text-4xl">
           {["of", "your", "business"].map((word, i) => (
             <GlideText key={word} text={word} delay={i * 0.1 + 0.6} />
           ))}
@@ -77,7 +77,7 @@ const MainTextContent = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="text-[15px] text-start leading-relaxed max-w-sm text-neutral-500 mb-8"
+        className="text-sm lg:text-md text-start leading-relaxed max-w-sm text-neutral-500 mb-8"
       >
         At SOFT-TECH Solutions, we don’t just deliver projects on time, we build
         interactive, long-term partnerships based on trust, accessibility, and
@@ -98,10 +98,6 @@ const MainTextContent = () => {
         >
           Contact Us <ArrowUpRightIcon size={20} />
         </StarBorder>
-
-        {/* <button className="bg-[#1e549f] hover:bg-[#16427e] text-white text-md font-medium gap-3 flex items-center px-10 py-4 rounded-full transition-all shadow-xl shadow-blue-900/20">
-          Contact Us <ArrowUpRightIcon size={20} />
-        </button> */}
       </motion.div>
     </div>
   );

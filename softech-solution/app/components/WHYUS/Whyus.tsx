@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
         <p className="text-xs font-medium tracking-widest uppercase text-neutral-400 mb-2">
           Why we're the best
         </p>
-        <h2 className="text-4xl font-semibold text-neutral-900 mb-3">
+        <h2 className="text-4xl font-bold text-neutral-900 mb-3">
           Why Choose Us?
         </h2>
         <p className="text-sm text-neutral-500 leading-relaxed max-w-md mb-10">
@@ -41,14 +41,14 @@ export default function WhyChooseUs() {
         </p>
 
         {/* Card Grid */}
-        <div className="grid grid-cols-4 grid-rows-2 gap-3 mb-4">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 grid-rows-2 gap-3 mb-4">
           {/* Featured dark card — row span 2 */}
           <div className="col-span-1 overflow-hidden row-span-2 bg-neutral-900 rounded-2xl p-5 flex flex-col justify-between">
             <div>
               <span className="inline-block text-[10px] font-medium tracking-wider uppercase px-2 py-1 rounded-full bg-emerald-900/40 text-emerald-400 mb-3">
                 Track record
               </span>
-              <p className="text-white font-semibold text-base leading-snug mb-2">
+              <p className="text-white font-semibold text-xl leading-snug mb-2">
                 Proven Industry Excellence
               </p>
               <p className="text-white/40 text-xs leading-relaxed">
@@ -61,13 +61,12 @@ export default function WhyChooseUs() {
               <Image src={card} alt="card" className="object-cover " />
             </div>
           </div>
-
           {/* Client-Centric Philosophy */}
           <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 hover:-translate-y-0.5 transition-transform duration-200">
             <span className="inline-block text-[10px] font-medium tracking-wider uppercase px-2 py-1 rounded-full bg-blue-50 text-blue-700 mb-3">
               Approach
             </span>
-            <p className="text-neutral-800 font-semibold text-sm mb-1.5">
+            <p className="text-neutral-800 font-semibold text-xl mb-1.5">
               Client-Centric Philosophy
             </p>
             <p className="text-neutral-500 text-xs leading-relaxed">
@@ -127,13 +126,12 @@ export default function WhyChooseUs() {
               />
             </svg>
           </div>
-
           {/* Leading-Edge Innovation */}
           <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 hover:-translate-y-0.5 transition-transform duration-200">
             <span className="inline-block text-[10px] font-medium tracking-wider uppercase px-2 py-1 rounded-full bg-amber-50 text-amber-700 mb-3">
               Innovation
             </span>
-            <p className="text-neutral-800 font-semibold text-sm mb-1.5">
+            <p className="text-neutral-800 font-semibold text-xl mb-1.5">
               Leading-Edge Innovation
             </p>
             <p className="text-neutral-500 text-xs leading-relaxed">
@@ -190,13 +188,12 @@ export default function WhyChooseUs() {
               />
             </svg>
           </div>
-
           {/* Global Expertise */}
           <div className="col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 hover:-translate-y-0.5 transition-transform duration-200">
             <span className="inline-block text-[10px] font-medium tracking-wider uppercase px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 mb-3">
               Global
             </span>
-            <p className="text-neutral-800 font-semibold text-sm mb-1.5">
+            <p className="text-neutral-800 font-semibold text-xl mb-1.5">
               Global Expertise
             </p>
             <p className="text-neutral-500 text-xs leading-relaxed">
@@ -250,14 +247,13 @@ export default function WhyChooseUs() {
               <circle cx="38" cy="21" r="1.5" fill="#5DCAA5" opacity="0.7" />
             </svg>
           </div>
-
           {/* Agile Scalability — bottom row spans 3 */}
-          <div className="col-span-3 bg-white border border-neutral-200 rounded-2xl p-5 flex items-start justify-between hover:-translate-y-0.5 transition-transform duration-200">
+          <div className="lg:col-span-3 col-span-1 bg-white border border-neutral-200 rounded-2xl p-5 flex items-start justify-between hover:-translate-y-0.5 transition-transform duration-200">
             <div>
               <span className="inline-block text-[10px] font-medium tracking-wider uppercase px-2 py-1 rounded-full bg-purple-50 text-purple-700 mb-3">
                 Scalability
               </span>
-              <p className="text-neutral-800 font-semibold text-sm mb-1.5">
+              <p className="text-neutral-800 font-semibold text-xl mb-1.5">
                 Agile Scalability
               </p>
               <p className="text-neutral-500 text-xs leading-relaxed max-w-sm">

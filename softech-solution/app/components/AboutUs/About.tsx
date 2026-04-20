@@ -19,12 +19,12 @@ const About = () => {
             <span className="text-[#3b82f6] uppercase tracking-[0.2em] text-xs font-bold">
               About Us
             </span>
-            <h2 className=" lg:text-4xl font-bold text-white leading-tight">
+            <h2 className=" lg:text-4xl md:text-2xl text-xl  font-bold text-white leading-tight">
               Hi, We’re <span className="text-brand2">SOFT-TECH</span> Solutions
             </h2>
           </div>
 
-          <p className="text-base text-md max-w-xl text-gray-400 leading-relaxed">
+          <p className=" lg: text-sm text-md max-w-xl text-gray-400 leading-relaxed">
             A pioneer in delivering innovative fintech and telecom software
             solutions to banks and businesses worldwide. Empowering
             organizations to thrive in the digital age with a proven track
