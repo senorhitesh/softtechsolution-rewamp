@@ -409,7 +409,7 @@ const OurServices = () => {
           WHAT WE DO
         </motion.span>
         <div className="flex items-start ">
-          <p className="font-extrabold md:text-6xl text-4xl text-7xl">
+          <p className="font-extrabold md:text-6xl text-4xl lg:text-7xl">
             Services
           </p>
 

@@ -119,7 +119,7 @@ function MegaDropdown({ item }: { item: NavItem }) {
         className={`
           flex items-center gap-1.5 px-1 py-1.5 text-sm font-medium tracking-wide
           transition-colors duration-150 outline-none group
-          ${open ? "text-blue-600" : "text-slate-700 hover:text-blue-600"}
+          ${open ? "text-brand2" : "text-slate-700 hover:text-brand2"}
         `}
       >
         {item.label}
@@ -139,7 +139,7 @@ function MegaDropdown({ item }: { item: NavItem }) {
           />
         </motion.svg>
         {/* animated underline */}
-        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-600 group-hover:w-full transition-all duration-300 rounded-full" />
+        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand2 group-hover:w-full transition-all duration-300 rounded-full" />
       </button>
 
       <AnimatePresence>
@@ -167,9 +167,6 @@ function MegaDropdown({ item }: { item: NavItem }) {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/80 overflow-hidden">
-              {/* Header stripe */}
-              <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-blue-400" />
-
               <motion.ul
                 variants={staggerContainer}
                 initial="hidden"
@@ -191,11 +188,11 @@ function MegaDropdown({ item }: { item: NavItem }) {
                       href={link.ariaLabel}
                       className="
                         flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-slate-600
-                        hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 group/link
+                        hover:bg-brand2/10 hover:text-brand2 transition-all duration-150 group/link
                         font-medium
                       "
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-200 group-hover/link:bg-blue-500 transition-colors duration-150 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand2 group-hover/link:bg-brand2 transition-colors duration-150 shrink-0" />
                       {link.label}
                     </Link>
                   </motion.li>
@@ -224,7 +221,7 @@ function MobileNavItem({
       <Link
         href={item.ariaLabel ?? "/"}
         onClick={onClose}
-        className="flex items-center px-4 py-3.5 text-sm font-semibold text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors"
+        className="flex items-center px-4 py-3.5 text-sm font-semibold text-slate-700  hover:bg-brand2/10 rounded-xl transition-colors"
       >
         {item.label}
       </Link>
@@ -235,7 +232,7 @@ function MobileNavItem({
     <div className="rounded-xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-xl"
+        className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-slate-700  hover:bg-brand2/10 transition-colors rounded-xl"
       >
         {item.label}
         <motion.svg
@@ -276,7 +273,7 @@ function MobileNavItem({
                 <Link
                   href={link.ariaLabel}
                   onClick={onClose}
-                  className="flex items-center gap-2.5 px-5 py-2.5 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                  className="flex items-center gap-2.5 px-5 py-2.5 text-sm text-slate-600   hover:bg-brand2/10 transition-colors"
                 >
                   <span className="w-1 h-1 rounded-full bg-slate-300 shrink-0" />
                   {link.label}
@@ -298,7 +295,6 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 12));
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
@@ -334,7 +330,7 @@ export default function Navbar() {
                   priority
                 />
                 {/* subtle glow on hover */}
-                <div className="absolute inset-0 rounded-lg bg-blue-400/0 group-hover:bg-blue-400/10 transition-colors duration-300 blur-sm" />
+                <div className="absolute inset-0 rounded-lg bg-brand2-400/0 group-hover:bg-brand2-400/10 transition-colors duration-300 blur-sm" />
               </div>
             </Link>
 
@@ -347,10 +343,10 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.ariaLabel ?? "/"}
-                    className="relative px-1 py-1.5 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors duration-150 group"
+                    className="relative px-1 py-1.5 text-sm font-medium text-slate-700 hover:text-brand2-600 transition-colors duration-150 group"
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-600 group-hover:w-full transition-all duration-300 rounded-full" />
+                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand2-600 group-hover:w-full transition-all duration-300 rounded-full" />
                   </Link>
                 ),
               )}
@@ -362,9 +358,10 @@ export default function Navbar() {
                 href="/contact"
                 className="
                   relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
-                  bg-blue-600 text-white overflow-hidden
-                  hover:bg-blue-700 active:scale-95
-                  transition-all duration-200 shadow-md shadow-blue-500/25
+                  bg-brand2-600 text-white overflow-hidden
+                  hover:bg-brand2-700 active:scale-95
+                  transition-all duration-200 
+                  bg-brand2
                   group
                 "
               >
@@ -382,11 +379,9 @@ export default function Navbar() {
                     d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                   />
                 </svg>
-                {/* shimmer effect */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
               </Link>
             </div>
-
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -462,7 +457,7 @@ export default function Navbar() {
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-white text-sm font-semibold text- bg-brand2 hover:bg-brand2-700 transition-colors shadow-md shadow-brand2-500/20"
                   >
                     Get Started
                     <svg

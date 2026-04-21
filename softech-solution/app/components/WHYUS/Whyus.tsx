@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 import StatsRow from "@/app/components/WHYUS/StatsRow";
 import card from "@/public/card.png";
 import Image from "next/image";
@@ -25,17 +28,80 @@ export default function WhyChooseUs() {
 
       <section className="w-full max-w-7xl mx-auto px-4 py-14">
         {/* Header */}
-        <p className="text-xs font-medium tracking-widest uppercase text-neutral-400 mb-2">
-          Why we're the best
-        </p>
-        <h2 className="text-4xl font-bold text-neutral-900 mb-3">
-          Why Choose Us?
-        </h2>
-        <p className="text-sm text-neutral-500 leading-relaxed max-w-md mb-10">
-          Most solutions haven't evolved with industry needs. We use
-          personalised approaches and modern technology to deliver results that
-          are faster, smarter, and built to last.
-        </p>
+        <div className="w-full flex flex-col gap-3 justify-center mb-6">
+          <motion.span
+            initial={{ border: 0 }}
+            animate={{ border: 1, borderColor: "#4ADE80" }}
+            transition={{ delay: 1 }}
+            className=" w-fit  tracking-widest  relative px-4  py-1  bg-orange-100 "
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -top-1 -left-1 "
+            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -top-1  -right-1 "
+            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -right-1 -bottom-1"
+            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -left-1 -bottom-1"
+            />
+            Why we're the best
+          </motion.span>
+          <div className="flex items-start ">
+            <p className="font-extrabold md:text-5xl text-4xl lg:text-6xl">
+              Why Us ?
+            </p>
+
+            <svg
+              width="18"
+              height="14"
+              viewBox="0 0 18 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              scale={170}
+              className="mt-3"
+            >
+              <path
+                d="M1.00024 5.75094C1.71288 4.26866 2.42552 2.78637 2.84965 1.99427C3.27377 1.20216 3.38779 1.14515 3.50527 1.00003"
+                stroke="#FF7B1C"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M3.15967 7.2194C6.06723 6.7063 8.97479 6.1932 10.5439 5.92887C12.113 5.66455 12.2555 5.66455 12.4024 5.66455"
+                stroke="#FF7B1C"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M5.49194 10.3291C7.80089 10.7852 10.1098 11.2412 11.8694 11.5475C13.629 11.8537 14.7692 11.9962 16.0303 12.1431"
+                stroke="#FF7B1C"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+          <p className="text-neutral-500 max-w-xl">
+            {" "}
+            Most solutions haven't evolved with industry needs. We use
+            personalised approaches and modern technology to deliver results
+            that are faster, smarter, and built to last.
+          </p>
+        </div>
 
         {/* Card Grid */}
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 grid-rows-2 gap-3 mb-4">
@@ -259,7 +325,7 @@ export default function WhyChooseUs() {
               </p>
             </div>
             <svg
-              className="flex-shrink-0 mt-1"
+              className="shrink-0 mt-1"
               width="80"
               height="44"
               viewBox="0 0 80 44"

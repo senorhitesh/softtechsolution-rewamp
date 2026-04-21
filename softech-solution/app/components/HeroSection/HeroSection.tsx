@@ -1,29 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
 import MainTextContent from "./MainTextContent";
-import BackgroundDecoration from "@/app/components/HeroSection/BackgroundDecoration";
 import OrbitalDashboard from "./Orbit";
 import Particles from "@/components/Particles";
 
 const HeroSection = () => {
   return (
     <>
-      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      <section className="relative w-full  flex items-center justify-center overflow-hidden bg-background">
         {/* <BackgroundDecoration /> */}
-        <Particles
-          particleColors={["#2bfb57"]}
-          particleCount={100}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={200}
-          moveParticlesOnHover
-          alphaParticles
-          disableRotation={true}
-          pixelRatio={1}
-          className={""}
-        />
+
         {/* Main Container */}
-        <div className="container mx-auto px-6 sm:px-10  py-12 lg:py-20">
+        <div className="container mx-auto px-6 sm:px-10  ">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-10">
             {/* Left Section: Text Content */}
             <motion.div
@@ -48,6 +36,18 @@ const HeroSection = () => {
             </motion.div>
           </div>
         </div>
+        {/* <Particles
+          particleColors={["#2bfb57"]}
+          particleCount={100}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={200}
+          moveParticlesOnHover
+          alphaParticles
+          disableRotation={true}
+          pixelRatio={1}
+          className={""}
+        /> */}
       </section>
     </>
   );
