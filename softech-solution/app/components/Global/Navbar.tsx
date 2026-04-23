@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback, memo } from "react";
 import {
   motion,
   AnimatePresence,
@@ -184,7 +184,7 @@ const staggerContainer = {
 };
 
 // ─── Chevron SVG ──────────────────────────────────────────────────────────────
-function Chevron({
+const Chevron = memo(function Chevron({
   open,
   className = "w-3.5 h-3.5 opacity-60",
 }: {
@@ -204,27 +204,27 @@ function Chevron({
       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </motion.svg>
   );
-}
+});
 
 // ─── Desktop: Generic Mega Dropdown ──────────────────────────────────────────
 function MegaDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const enter = () => {
+  const enter = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
     setOpen(true);
-  };
-  const leave = () => {
+  }, []);
+  const leave = useCallback(() => {
     timerRef.current = setTimeout(() => setOpen(false), 120);
-  };
+  }, []);
 
-  const cols =
-    item.links && item.links.length > 8
-      ? 3
-      : item.links && item.links.length > 4
-        ? 2
-        : 1;
+  const cols = useMemo(() => {
+    if (!item.links) return 1;
+    if (item.links.length > 8) return 3;
+    if (item.links.length > 4) return 2;
+    return 1;
+  }, [item.links]);
 
   return (
     <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
@@ -303,14 +303,17 @@ function TechMegaDropdown() {
   const [activeCategory, setActiveCategory] = useState(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const enter = () => {
+  const enter = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
     setOpen(true);
-  };
-  const leave = () => {
+  }, []);
+  const leave = useCallback(() => {
     timerRef.current = setTimeout(() => setOpen(false), 120);
-  };
-
+  }, []);
+  const activeItems = useMemo(
+    () => TECH_CATEGORIES[activeCategory].items,
+    [activeCategory],
+  );
   return (
     <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
       <button
@@ -406,7 +409,7 @@ function TechMegaDropdown() {
                       "repeat(auto-fill, minmax(140px, 1fr))",
                   }}
                 >
-                  {TECH_CATEGORIES[activeCategory].items.map((item) => (
+                  {activeItems.map((item) => (
                     <motion.li
                       key={item.ariaLabel}
                       initial={{ opacity: 0, x: -4 }}
@@ -437,7 +440,7 @@ function TechMegaDropdown() {
 }
 
 // ─── Mobile: Generic Nav Item ─────────────────────────────────────────────────
-function MobileNavItem({
+const MobileNavItem = memo(function MobileNavItem({
   item,
   onClose,
 }: {
@@ -504,15 +507,16 @@ function MobileNavItem({
       </AnimatePresence>
     </div>
   );
-}
-
+});
 // ─── Mobile: Technologies Nav Item (two-level accordion) ─────────────────────
 function MobileTechNavItem({ onClose }: { onClose: () => void }) {
   const [open, setOpen] = useState(false);
   const [openCat, setOpenCat] = useState<string | null>(null);
 
-  const toggleCat = (id: string) =>
-    setOpenCat((prev) => (prev === id ? null : id));
+  const toggleCat = useCallback(
+    (id: string) => setOpenCat((prev) => (prev === id ? null : id)),
+    [],
+  );
 
   return (
     <div className="rounded-xl overflow-hidden">
@@ -739,13 +743,10 @@ export default function Navbar() {
             <nav className="hidden lg:flex items-center gap-4 flex-1">
               {NAV_ITEMS.map((item) =>
                 item.label === "Technologies" ? (
-                  // ← Categorized dropdown for Technologies
                   <TechMegaDropdown key={item.label} />
                 ) : item.links && item.links.length > 0 ? (
-                  // ← Generic mega dropdown for everything else with links
                   <MegaDropdown key={item.label} item={item} />
                 ) : (
-                  // ← Plain link (Home, About)
                   <Link
                     key={item.label}
                     href={item.ariaLabel ?? "/"}

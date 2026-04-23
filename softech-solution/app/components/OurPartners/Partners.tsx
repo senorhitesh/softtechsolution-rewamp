@@ -155,7 +155,7 @@ const PartnerCard = ({ partner }: { partner: PartnerProps }) => {
         }}
       >
         {/* Subtle glassmorphism background glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-purple-500/10 to-transparent pointer-events-none" />
 
         <h3 className="font-bold text-gray-800 text-lg tracking-tight uppercase">
           {partner.name}
