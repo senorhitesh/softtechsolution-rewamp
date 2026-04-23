@@ -1,4 +1,3 @@
-import Partners from "../OurPartners/Partners";
 import InfiniteSliderBasic from "./InfiniteSlider";
 import Journey from "@/app/components/Journey/Journey";
 
@@ -13,10 +12,7 @@ const TrustSection = () => {
           </p>
           <InfiniteSliderBasic />{" "}
         </div>
-        <div className="w-full ">
-          {" "}
-          <Partners />
-        </div>
+
         {/* <Journey /> */}
       </div>
     </div>

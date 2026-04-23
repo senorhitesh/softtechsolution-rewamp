@@ -12,14 +12,98 @@ import Link from "next/link";
 import logo from "@/public/logosts.png";
 import { ModeToggle } from "./ToogleSwitch";
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
+type NavLink = { label: string; ariaLabel: string };
+
 type NavItem = {
-  label: string;
+  label?: string;
   ariaLabel?: string;
-  links?: { label: string; ariaLabel: string }[];
+  links?: NavLink[];
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+type TechCategory = {
+  id: string;
+  icon: string;
+  label: string;
+  items: NavLink[];
+};
+
+// ─── Tech Categories Data ─────────────────────────────────────────────────────
+const TECH_CATEGORIES: TechCategory[] = [
+  {
+    id: "lang",
+    icon: "⌨️",
+    label: "Programming languages",
+    items: [
+      { label: "Java", ariaLabel: "technologies/java" },
+      { label: "Python", ariaLabel: "technologies/python" },
+      { label: "PHP", ariaLabel: "technologies/php" },
+      { label: "C#", ariaLabel: "technologies/csharp" },
+    ],
+  },
+  {
+    id: "fw",
+    icon: "🧩",
+    label: "Frameworks & libraries",
+    items: [
+      { label: "Spring", ariaLabel: "technologies/spring" },
+      { label: "React", ariaLabel: "technologies/react" },
+      { label: "Angular", ariaLabel: "technologies/angular" },
+      { label: "Laravel", ariaLabel: "technologies/laravel" },
+      { label: "Flutter", ariaLabel: "technologies/flutter" },
+      { label: "Xamarin", ariaLabel: "technologies/xamarin" },
+      { label: ".NET", ariaLabel: "technologies/dotnet" },
+    ],
+  },
+  {
+    id: "backend",
+    icon: "⚙️",
+    label: "Runtime & backend",
+    items: [
+      { label: "Node.js", ariaLabel: "technologies/nodejs" },
+      { label: "Firebase", ariaLabel: "technologies/firebase" },
+    ],
+  },
+  {
+    id: "mobile",
+    icon: "📱",
+    label: "Mobile & platforms",
+    items: [
+      { label: "Android", ariaLabel: "technologies/android" },
+      { label: "iOS / Apple", ariaLabel: "technologies/apple" },
+    ],
+  },
+  {
+    id: "db",
+    icon: "🗄️",
+    label: "Databases",
+    items: [
+      { label: "MySQL", ariaLabel: "technologies/mysql" },
+      { label: "PostgreSQL", ariaLabel: "technologies/postgresql" },
+      { label: "MongoDB", ariaLabel: "technologies/mongodb" },
+    ],
+  },
+  {
+    id: "cms",
+    icon: "🛒",
+    label: "CMS & e-commerce",
+    items: [
+      { label: "WordPress", ariaLabel: "technologies/wordpress" },
+      { label: "Magento", ariaLabel: "technologies/magento" },
+    ],
+  },
+  {
+    id: "fe",
+    icon: "🎨",
+    label: "Frontend",
+    items: [
+      { label: "HTML5", ariaLabel: "technologies/html5" },
+      { label: "CSS3", ariaLabel: "technologies/css3" },
+    ],
+  },
+];
+
+// ─── Nav Items Data ───────────────────────────────────────────────────────────
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", ariaLabel: "/" },
   { label: "About", ariaLabel: "/about" },
@@ -80,6 +164,10 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
+    label: "Technologies",
+    links: [],
+  },
+  {
     label: "More",
     links: [
       { label: "Careers", ariaLabel: "/careers" },
@@ -89,12 +177,36 @@ const NAV_ITEMS: NavItem[] = [
   },
 ];
 
+// ─── Animation Variants ───────────────────────────────────────────────────────
 const staggerContainer = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.04, delayChildren: 0.05 } },
 };
 
-// ─── Mega Dropdown ─────────────────────────────────────────────────────────────
+// ─── Chevron SVG ──────────────────────────────────────────────────────────────
+function Chevron({
+  open,
+  className = "w-3.5 h-3.5 opacity-60",
+}: {
+  open: boolean;
+  className?: string;
+}) {
+  return (
+    <motion.svg
+      animate={{ rotate: open ? 180 : 0 }}
+      transition={{ duration: 0.2 }}
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </motion.svg>
+  );
+}
+
+// ─── Desktop: Generic Mega Dropdown ──────────────────────────────────────────
 function MegaDropdown({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -117,29 +229,12 @@ function MegaDropdown({ item }: { item: NavItem }) {
   return (
     <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
       <button
-        className={`
-          flex items-center gap-1.5 px-1 py-1.5 text-sm font-medium tracking-wide
+        className={`flex items-center gap-1.5 px-1 py-1.5 text-sm font-medium tracking-wide
           transition-colors duration-150 outline-none group
-          ${open ? "text-brand2" : "text-slate-700 hover:text-brand2"}
-        `}
+          ${open ? "text-brand2" : "text-slate-700 hover:text-brand2"}`}
       >
         {item.label}
-        <motion.svg
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="w-3.5 h-3.5 opacity-60"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2.5}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19 9l-7 7-7-7"
-          />
-        </motion.svg>
-        {/* animated underline */}
+        <Chevron open={open} />
         <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand2 group-hover:w-full transition-all duration-300 rounded-full" />
       </button>
 
@@ -162,17 +257,15 @@ function MegaDropdown({ item }: { item: NavItem }) {
             className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50"
             style={{ minWidth: cols === 3 ? 600 : cols === 2 ? 380 : 220 }}
           >
-            {/* Arrow */}
             <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-2 overflow-hidden">
               <div className="w-3 h-3 bg-white border border-slate-200 rotate-45 translate-y-1 mx-auto shadow-sm" />
             </div>
-
             <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/80 overflow-hidden">
               <motion.ul
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
-                className={`p-4 grid gap-x-6 gap-y-0.5`}
+                className="p-4 grid gap-x-6 gap-y-0.5"
                 style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
               >
                 {item.links.map((link) => (
@@ -187,13 +280,10 @@ function MegaDropdown({ item }: { item: NavItem }) {
                   >
                     <Link
                       href={link.ariaLabel}
-                      className="
-                        flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-slate-600
-                        hover:bg-brand2/10 hover:text-brand2 transition-all duration-150 group/link
-                        font-medium
-                      "
+                      className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-slate-600
+                        hover:bg-brand2/10 hover:text-brand2 transition-all duration-150 group/link font-medium"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand2 group-hover/link:bg-brand2 transition-colors duration-150 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand2 shrink-0" />
                       {link.label}
                     </Link>
                   </motion.li>
@@ -207,7 +297,146 @@ function MegaDropdown({ item }: { item: NavItem }) {
   );
 }
 
-// ─── Mobile Accordion Item ────────────────────────────────────────────────────
+// ─── Desktop: Technologies Mega Dropdown (categorized) ───────────────────────
+function TechMegaDropdown() {
+  const [open, setOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const enter = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setOpen(true);
+  };
+  const leave = () => {
+    timerRef.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  return (
+    <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
+      <button
+        className={`flex items-center gap-1.5 px-1 py-1.5 text-sm font-medium tracking-wide
+          transition-colors duration-150 outline-none group
+          ${open ? "text-brand2" : "text-slate-700 hover:text-brand2"}`}
+      >
+        Technologies
+        <Chevron open={open} />
+        <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand2 group-hover:w-full transition-all duration-300 rounded-full" />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: { duration: 0.22, ease: [0.16, 1, 0.3, 1] },
+            }}
+            exit={{
+              opacity: 0,
+              y: -6,
+              scale: 0.97,
+              transition: { duration: 0.15, ease: "easeIn" },
+            }}
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50"
+            style={{ width: 560 }}
+          >
+            {/* Arrow */}
+            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-2 overflow-hidden">
+              <div className="w-3 h-3 bg-white border border-slate-200 rotate-45 translate-y-1 mx-auto shadow-sm" />
+            </div>
+
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/80 overflow-hidden flex">
+              {/* Sidebar */}
+              <div className="w-52 border-r border-slate-100 p-2 shrink-0">
+                {TECH_CATEGORIES.map((cat, i) => (
+                  <button
+                    key={cat.id}
+                    onMouseEnter={() => setActiveCategory(i)}
+                    onClick={() => setActiveCategory(i)}
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg
+                      text-sm font-medium transition-all duration-150 text-left
+                      ${
+                        activeCategory === i
+                          ? "bg-indigo-50 text-indigo-700"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-800"
+                      }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span
+                        className={`w-7 h-7 rounded-md flex items-center justify-center text-sm shrink-0
+                        ${activeCategory === i ? "bg-indigo-100" : "bg-slate-100"}`}
+                      >
+                        {cat.icon}
+                      </span>
+                      {cat.label}
+                    </span>
+                    <svg
+                      className={`w-3.5 h-3.5 opacity-40 transition-transform duration-150
+                        ${activeCategory === i ? "translate-x-0.5 opacity-100" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                ))}
+              </div>
+
+              {/* Items panel */}
+              <div className="flex-1 p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mb-3">
+                  {TECH_CATEGORIES[activeCategory].label}
+                </p>
+                <motion.ul
+                  key={activeCategory}
+                  variants={staggerContainer}
+                  initial="hidden"
+                  animate="visible"
+                  className="grid gap-0.5"
+                  style={{
+                    gridTemplateColumns:
+                      "repeat(auto-fill, minmax(140px, 1fr))",
+                  }}
+                >
+                  {TECH_CATEGORIES[activeCategory].items.map((item) => (
+                    <motion.li
+                      key={item.ariaLabel}
+                      initial={{ opacity: 0, x: -4 }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                        transition: { duration: 0.15, ease: "easeOut" },
+                      }}
+                    >
+                      <Link
+                        href={item.ariaLabel}
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-slate-600
+                          hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-150 font-medium"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                        {item.label}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// ─── Mobile: Generic Nav Item ─────────────────────────────────────────────────
 function MobileNavItem({
   item,
   onClose,
@@ -217,12 +446,13 @@ function MobileNavItem({
 }) {
   const [open, setOpen] = useState(false);
 
-  if (!item.links) {
+  if (!item.links || item.links.length === 0) {
     return (
       <Link
         href={item.ariaLabel ?? "/"}
         onClick={onClose}
-        className="flex items-center px-4 py-3.5 text-sm font-semibold text-slate-700  hover:bg-brand2/10 rounded-xl transition-colors"
+        className="flex items-center px-4 py-3.5 text-sm font-semibold text-slate-700
+          hover:bg-brand2/10 rounded-xl transition-colors"
       >
         {item.label}
       </Link>
@@ -233,24 +463,11 @@ function MobileNavItem({
     <div className="rounded-xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-slate-700  hover:bg-brand2/10 transition-colors rounded-xl"
+        className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold
+          text-slate-700 hover:bg-brand2/10 transition-colors rounded-xl"
       >
         {item.label}
-        <motion.svg
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="w-4 h-4 opacity-60"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2.5}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19 9l-7 7-7-7"
-          />
-        </motion.svg>
+        <Chevron open={open} className="w-4 h-4 opacity-60" />
       </button>
 
       <AnimatePresence>
@@ -274,7 +491,8 @@ function MobileNavItem({
                 <Link
                   href={link.ariaLabel}
                   onClick={onClose}
-                  className="flex items-center gap-2.5 px-5 py-2.5 text-sm text-slate-600   hover:bg-brand2/10 transition-colors"
+                  className="flex items-center gap-2.5 px-5 py-2.5 text-sm text-slate-600
+                    hover:bg-brand2/10 transition-colors"
                 >
                   <span className="w-1 h-1 rounded-full bg-slate-300 shrink-0" />
                   {link.label}
@@ -282,6 +500,116 @@ function MobileNavItem({
               </li>
             ))}
           </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// ─── Mobile: Technologies Nav Item (two-level accordion) ─────────────────────
+function MobileTechNavItem({ onClose }: { onClose: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [openCat, setOpenCat] = useState<string | null>(null);
+
+  const toggleCat = (id: string) =>
+    setOpenCat((prev) => (prev === id ? null : id));
+
+  return (
+    <div className="rounded-xl overflow-hidden">
+      {/* Top-level row */}
+      <button
+        onClick={() => {
+          setOpen(!open);
+          setOpenCat(null);
+        }}
+        className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold
+          text-slate-700 hover:bg-brand2/10 transition-colors rounded-xl"
+      >
+        Technologies
+        <Chevron open={open} className="w-4 h-4 opacity-60" />
+      </button>
+
+      {/* Category list */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+              transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: { duration: 0.18, ease: "easeIn" },
+            }}
+            className="overflow-hidden bg-slate-50/80 rounded-xl mx-1 mb-1"
+          >
+            {TECH_CATEGORIES.map((cat) => (
+              <div key={cat.id}>
+                {/* Category row */}
+                <button
+                  onClick={() => toggleCat(cat.id)}
+                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-medium
+                    transition-colors
+                    ${
+                      openCat === cat.id
+                        ? "text-indigo-700 bg-indigo-50"
+                        : "text-slate-600 hover:bg-brand2/10"
+                    }`}
+                >
+                  <span className="flex items-center gap-2.5">
+                    <span
+                      className={`w-6 h-6 rounded-md flex items-center justify-center text-xs shrink-0
+                      ${openCat === cat.id ? "bg-indigo-100" : "bg-slate-200"}`}
+                    >
+                      {cat.icon}
+                    </span>
+                    {cat.label}
+                  </span>
+                  <Chevron
+                    open={openCat === cat.id}
+                    className="w-3.5 h-3.5 opacity-50"
+                  />
+                </button>
+
+                {/* Items under category */}
+                <AnimatePresence>
+                  {openCat === cat.id && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{
+                        height: "auto",
+                        opacity: 1,
+                        transition: { duration: 0.2, ease: [0.16, 1, 0.3, 1] },
+                      }}
+                      exit={{
+                        height: 0,
+                        opacity: 0,
+                        transition: { duration: 0.15, ease: "easeIn" },
+                      }}
+                      className="overflow-hidden bg-white"
+                    >
+                      {cat.items.map((item) => (
+                        <li key={item.ariaLabel}>
+                          <Link
+                            href={item.ariaLabel}
+                            onClick={onClose}
+                            className="flex items-center gap-2.5 pl-12 pr-4 py-2.5 text-sm
+                              text-slate-600 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                          >
+                            <span className="w-1 h-1 rounded-full bg-indigo-300 shrink-0" />
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
@@ -309,23 +637,22 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className={`
-          fixed top-0 left-0 right-0 z-40 transition-all duration-300
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300
           ${
             scrolled
               ? "bg-white/95 backdrop-blur-md shadow-lg shadow-slate-900/8 border-b border-slate-200/80"
               : "bg-white/80 backdrop-blur-sm border-b border-transparent"
-          }
-        `}
+          }`}
       >
-        {/*Upper Strip */}
+        {/* Upper strip */}
         <div className="max-w-7xl px-4 py-2 sm:px-6 mx-auto flex justify-between items-center">
-          <div className="flex items-center  gap-3">
+          <div className="flex items-center gap-3">
             <p className="text-[#59B039] border-gray-300 border-r pr-3">
               GST-IN: <span className="text-neutral-900">24ACUFS8893B1ZH</span>
             </p>
             <div className="flex gap-2">
-              <div className="flex rounded-md  ">
+              {/* LinkedIn */}
+              <div className="flex rounded-md">
                 <svg
                   width="18"
                   height="18"
@@ -339,7 +666,8 @@ export default function Navbar() {
                   />
                 </svg>
               </div>
-              <div className="flex rounded-md  ">
+              {/* Instagram */}
+              <div className="flex rounded-md">
                 <svg
                   width="18"
                   height="18"
@@ -368,7 +696,8 @@ export default function Navbar() {
                   </defs>
                 </svg>
               </div>
-              <div className="flex rounded-md  ">
+              {/* Facebook */}
+              <div className="flex rounded-md">
                 <svg
                   width="18"
                   height="18"
@@ -388,6 +717,8 @@ export default function Navbar() {
             <ModeToggle />
           </div>
         </div>
+
+        {/* Main nav row */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center h-16 gap-8">
             {/* Logo */}
@@ -400,7 +731,6 @@ export default function Navbar() {
                   className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
                   priority
                 />
-                {/* subtle glow on hover */}
                 <div className="absolute inset-0 rounded-lg bg-brand2-400/0 group-hover:bg-brand2-400/10 transition-colors duration-300 blur-sm" />
               </div>
             </Link>
@@ -408,16 +738,25 @@ export default function Navbar() {
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-4 flex-1">
               {NAV_ITEMS.map((item) =>
-                item.links ? (
+                item.label === "Technologies" ? (
+                  // ← Categorized dropdown for Technologies
+                  <TechMegaDropdown key={item.label} />
+                ) : item.links && item.links.length > 0 ? (
+                  // ← Generic mega dropdown for everything else with links
                   <MegaDropdown key={item.label} item={item} />
                 ) : (
+                  // ← Plain link (Home, About)
                   <Link
                     key={item.label}
                     href={item.ariaLabel ?? "/"}
-                    className="relative px-1 py-1.5 text-sm font-medium text-slate-700 hover:text-brand2-600 transition-colors duration-150 group"
+                    className="relative px-1 py-1.5 text-sm font-medium text-slate-700
+                      hover:text-brand2-600 transition-colors duration-150 group"
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand2-600 group-hover:w-full transition-all duration-300 rounded-full" />
+                    <span
+                      className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand2-600
+                      group-hover:w-full transition-all duration-300 rounded-full"
+                    />
                   </Link>
                 ),
               )}
@@ -427,14 +766,9 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3 ml-auto">
               <Link
                 href="/contact"
-                className="
-                  relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
-                  bg-brand2-600 text-white overflow-hidden
-                  hover:bg-brand2-700 active:scale-95
-                  transition-all duration-200 
-                  bg-brand2
-                  group
-                "
+                className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold
+                  bg-brand2 text-white overflow-hidden hover:bg-brand2-700 active:scale-95
+                  transition-all duration-200 group"
               >
                 <span className="relative z-10">Get Started</span>
                 <svg
@@ -450,10 +784,15 @@ export default function Navbar() {
                     d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                   />
                 </svg>
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
+                <div
+                  className="absolute inset-0 -translate-x-full group-hover:translate-x-full
+                  transition-transform duration-700 bg-linear-to-r from-transparent via-white/20
+                  to-transparent skew-x-12"
+                />
               </Link>
             </div>
-            {/* Mobile Hamburger */}
+
+            {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden ml-auto p-2 rounded-xl hover:bg-slate-100 transition-colors"
@@ -512,23 +851,34 @@ export default function Navbar() {
                 height: 0,
                 transition: { duration: 0.2, ease: "easeIn" },
               }}
-              className="fixed top-16 left-0 right-0 z-30 lg:hidden bg-white border-b border-slate-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto"
+              className="fixed top-16 left-0 right-0 z-30 lg:hidden bg-white border-b
+                border-slate-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto"
             >
               <div className="p-4 space-y-1">
-                {NAV_ITEMS.map((item) => (
-                  <MobileNavItem
-                    key={item.label}
-                    item={item}
-                    onClose={() => setMobileOpen(false)}
-                  />
-                ))}
+                {NAV_ITEMS.map((item) =>
+                  item.label === "Technologies" ? (
+                    <MobileTechNavItem
+                      key={item.label}
+                      onClose={() => setMobileOpen(false)}
+                    />
+                  ) : (
+                    // ← Regular accordion for everything else
+                    <MobileNavItem
+                      key={item.label}
+                      item={item}
+                      onClose={() => setMobileOpen(false)}
+                    />
+                  ),
+                )}
 
                 {/* Mobile CTA */}
                 <div className="pt-4 pb-2 border-t border-slate-100 mt-4 flex flex-col gap-2">
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-white text-sm font-semibold text- bg-brand2 hover:bg-brand2-700 transition-colors shadow-md shadow-brand2-500/20"
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl
+                      text-white text-sm font-semibold bg-brand2 hover:bg-brand2-700
+                      transition-colors shadow-md shadow-brand2-500/20"
                   >
                     Get Started
                     <svg

@@ -1,7 +1,3 @@
-"use client";
-import { motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { SlidingNumber } from "@/components/motion-primitives/sliding-number";
 import { Suspense } from "react";
 import Navbar from "./components/Global/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
@@ -11,6 +7,8 @@ import Footer from "@/app/components/Global/Footer";
 import TrustSection from "./components/Global/TrustSection";
 import Blogs from "@/app/components/Blogs/Blogs";
 import FinalCta from "@/app/components/FinalCta/FinalCta";
+import Partners from "@/app/components/OurPartners/Partners";
+
 export default function Home() {
   return (
     <Suspense
@@ -28,6 +26,10 @@ export default function Home() {
         <TrustSection />
         <Blogs />
         <FinalCta />
+        <div className="w-full ">
+          {" "}
+          <Partners />
+        </div>
         <Footer />
       </div>
     </Suspense>
