@@ -3,8 +3,20 @@ import Logo from "@/public/image.png";
 import items from "@/lib/data";
 const DURATION = 40;
 import { Tilt } from "@/components/motion-primitives/tilt";
+import { useMemo } from "react";
 
 export default function RotatingOrbit() {
+  const delays = useMemo(
+    () =>
+      Object.fromEntries(
+        items.map((item) => [
+          item.id,
+          `${-((item.startDeg / 160) * DURATION)}s`,
+        ]),
+      ),
+    [],
+  );
+  const radius = useMemo(() => [150, 248], []);
   return (
     <Tilt rotationFactor={8} isRevese>
       <div className="relative flex items-center justify-center w-full h-160   ">
@@ -14,11 +26,8 @@ export default function RotatingOrbit() {
         .orbit-arm  { animation: cwSpin  ${DURATION}s linear infinite; }
         .orbit-face { animation: ccwSpin ${DURATION}s linear infinite; }
       `}</style>
-        {/* Crosshair */}
-        {/* <div className="absolute top-1/2 left-0 right-0 h-px border-t border-dashed border-slate-200 pointer-events-none" /> */}
-        {/* <div className="absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed border-slate-200 pointer-events-none" /> */}
-        {/* Guide rings */}
-        {[150, 248].map((r) => (
+
+        {radius.map((r) => (
           <div
             key={r}
             className={`absolute rounded-full pointer-events-none border border-dashed border-slate-500/70 animate-spin`}
@@ -28,17 +37,16 @@ export default function RotatingOrbit() {
 
         {/* Orbital items */}
         {items.map((item) => {
-          const delay = `${-((item.startDeg / 160) * DURATION)}s`;
           return (
             <div
               key={item.id}
               className="orbit-arm absolute top-1/2  left-1/2 w-0 h-0"
-              style={{ animationDelay: delay }}
+              style={{ animationDelay: delays[item.id] }}
             >
               <div className="absolute left-0" style={{ top: item.radius }}>
                 <div
                   className="orbit-face -translate-x-1/2 -translate-y-1/2"
-                  style={{ animationDelay: delay }}
+                  style={{ animationDelay: delays[item.id] }}
                 >
                   {item.content}
                 </div>

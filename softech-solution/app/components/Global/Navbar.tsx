@@ -260,7 +260,7 @@ function MegaDropdown({ item }: { item: NavItem }) {
             <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-2 overflow-hidden">
               <div className="w-3 h-3 bg-white border border-slate-200 rotate-45 translate-y-1 mx-auto shadow-sm" />
             </div>
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/80 overflow-hidden">
+            <div className=" bg-white/96 backdrop-blur-3xl rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/80 overflow-hidden">
               <motion.ul
                 variants={staggerContainer}
                 initial="hidden"
