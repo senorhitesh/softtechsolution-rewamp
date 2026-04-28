@@ -1,198 +1,116 @@
-"use client";
-import { motion } from "framer-motion";
-import { Calendar, LightbulbIcon } from "lucide-react";
-import type { ExperienceItemType } from "@/components/work-experience";
-import { WorkExperience } from "@/components/work-experience";
-export default function Journey() {
-  return (
-    <div className="flex-col w-full flex items-start justify-center p-12">
-      <div className="w-full flex flex-col gap-3 justify-center mb-6">
-        <motion.span
-          initial={{ border: 0 }}
-          animate={{ border: 1, borderColor: "#4ADE80" }}
-          transition={{ delay: 1 }}
-          className=" w-fit  tracking-widest  relative px-4  py-1  bg-orange-100 "
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -top-1 -left-1 "
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -top-1  -right-1 "
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -right-1 -bottom-1"
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="absolute w-2 h-2 border border-orange-500 bg-orange-200 -left-1 -bottom-1"
-          />
-          Where did we Started ?
-        </motion.span>
-        <div className="flex items-start ">
-          <p className="font-extrabold md:text-5xl text-4xl lg:text-6xl">
-            Journey ?
-          </p>
+const JOURNEY_DATA = [
+  {
+    year: "2013",
+    tag: "Founded",
+    title: "Foundation",
+    desc: "Two visionaries laid the groundwork, building on Ruby on Rails and a shared passion for solving real problems with elegant software.",
+  },
+  {
+    year: "2014",
+    tag: "Expansion",
+    title: "Mobile App Department",
+    desc: "As mobile surged, we embraced it fully — launching a dedicated iOS and Android team to meet growing demand for cross-platform apps.",
+  },
+  {
+    year: "2015",
+    tag: "New Vertical",
+    title: "Odoo Origination",
+    desc: "Our focus on comprehensive ERP led us to Odoo. We've since served over 85 clients with deep integrations and continued partnerships.",
+  },
+  {
+    year: "2017",
+    tag: "Recognition",
+    title: "Top Rated on Upwork",
+    desc: "Years of client dedication paid off — we earned Top Rated status on Upwork, underscoring our commitment to quality and delivery.",
+  },
+  {
+    year: "2019",
+    tag: "Scale",
+    title: "50+ Team Members",
+    desc: "Crossed the 50-person milestone, bringing in specialists across design, DevOps, and data engineering to serve larger clients.",
+  },
+  {
+    year: "2022",
+    tag: "Global",
+    title: "International Reach",
+    desc: "Opened partnerships across North America, Europe, and the Middle East — delivering solutions that transcend time zones.",
+  },
+  {
+    year: "2024",
+    tag: "Today",
+    title: "AI-Driven Future",
+    desc: "Integrating AI and LLMs into our product stack, helping clients automate workflows and extract intelligence from their data.",
+  },
+];
 
-          <svg
-            width="18"
-            height="14"
-            viewBox="0 0 18 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            scale={170}
-            className="mt-3"
-          >
-            <path
-              d="M1.00024 5.75094C1.71288 4.26866 2.42552 2.78637 2.84965 1.99427C3.27377 1.20216 3.38779 1.14515 3.50527 1.00003"
-              stroke="#FF7B1C"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M3.15967 7.2194C6.06723 6.7063 8.97479 6.1932 10.5439 5.92887C12.113 5.66455 12.2555 5.66455 12.4024 5.66455"
-              stroke="#FF7B1C"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <path
-              d="M5.49194 10.3291C7.80089 10.7852 10.1098 11.2412 11.8694 11.5475C13.629 11.8537 14.7692 11.9962 16.0303 12.1431"
-              stroke="#FF7B1C"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
+import {
+  Carousel,
+  CarouselContent,
+  CarouselNavigation,
+  CarouselItem,
+} from "@/components/motion-primitives/carousel";
+
+const Journey = () => {
+  return (
+    <div className="w-full py-16 px-4">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+          Our Journey
+        </h2>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">
+          A decade of building and growing
+        </p>
       </div>
-      <div>
-        <WorkExperience
-          className="w-full bg-transparent"
-          experiences={JOURNEY}
-        />
+
+      {/* Carousel */}
+      <div className="relative w-full">
+        <Carousel>
+          <CarouselContent className="-ml-4">
+            {JOURNEY_DATA.map((item, index) => (
+              <CarouselItem key={index} className="basis-1/3 pl-4">
+                <div className="flex flex-col items-center">
+                  {/* Year Pill */}
+                  <span className="bg-indigo-600 text-white text-xs font-medium px-4 py-1.5 rounded-full mb-3 tracking-wide">
+                    {item.year}
+                  </span>
+
+                  {/* Timeline Line + Dot */}
+                  <div className="relative w-full flex items-center justify-center h-[2px] mb-0">
+                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-zinc-200 dark:bg-zinc-700" />
+                    <div className="relative z-10 w-2.5 h-2.5 rounded-full bg-indigo-600 ring-2 ring-white dark:ring-zinc-950 ring-offset-0" />
+                  </div>
+
+                  {/* Stem */}
+                  <div className="w-px h-7 bg-zinc-200 dark:bg-zinc-700" />
+
+                  {/* Card */}
+                  <div className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 transition-all duration-200 hover:-translate-y-1 hover:border-indigo-500 dark:hover:border-indigo-500 group">
+                    <span className="inline-block text-[11px] font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-2.5 py-0.5 rounded-full mb-3">
+                      {item.tag}
+                    </span>
+                    <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Navigation */}
+          <CarouselNavigation
+            className="absolute -bottom-14 left-auto top-auto w-full justify-end gap-2"
+            classNameButton="bg-zinc-900 *:stroke-zinc-50 dark:bg-zinc-100 dark:*:stroke-zinc-900"
+            alwaysShow
+          />
+        </Carousel>
       </div>
     </div>
   );
-}
+};
 
-const JOURNEY: ExperienceItemType[] = [
-  {
-    id: "Soft Tech Solution",
-    companyName: "Soft Tech Solution",
-    companyLogo: "https://soft-techsolutions.com/assets/img/btn-img.png",
-    companyWebsite: "https://quaric.com",
-    positions: [
-      {
-        id: "6",
-        title: "2015-2016",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: <LightbulbIcon />,
-        skills: [
-          "SMS Service",
-          "FAS (Finance Managment Solution)",
-          "IVRS Service",
-          "Miscall Service",
-        ],
-      },
-      {
-        id: "5",
-        title: "2017 - 2018",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: <Calendar />,
-        skills: [
-          "Long Code",
-          "Webiste Development",
-          "Bulk Email",
-          "Voice Call/Broadcasting",
-          "SSL Certificate",
-        ],
-      },
-      {
-        id: "4",
-        title: "2019 - 2020",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: <Calendar />,
-        skills: [
-          "NACH Application",
-          "NACH Signing Tool",
-          "CTS Solution",
-          "POS (Point of Sale) for International Clients",
-          "PDF Signing Tool",
-          "Digital Signature Certificate (DSC)",
-        ],
-      },
-      {
-        id: "3",
-        title: " 2021 -2022",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: <Calendar />,
-        skills: [
-          "PPS (Positive Pay)",
-          "Fuel POS Solution for International Clients",
-          "NACH Host to Host",
-          "Ticketing Tool/Complaint Management System",
-          "SmartERP (HRMS/Payroll/CRMS)",
-          "V-KYC/Re-KYC / E-KYC Solutions",
-        ],
-      },
-      {
-        id: "2",
-        title: "2023 - 2024",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: <Calendar />,
-        skills: [
-          "WhatsApp Bot & Business API",
-          "Simplified eMandate API",
-          "eSign eMandate",
-          "eNACH Sponsor eMandate API ",
-          "ENACH Destination eMandate API",
-          "Bank & Corporator Portal",
-          "Power SMPP for International Client",
-          "API Based PAN CBDT/DGFT/EPFO/GSTD",
-          "PFMS Automation interface",
-          "KYC Validation API Suite",
-        ],
-      },
-      {
-        id: "1",
-        title: "2025 - 2026",
-        employmentPeriod: {
-          start: "03.2024",
-        },
-        employmentType: "Part-time",
-        icon: <Calendar />,
-        skills: [
-          "SMS Service",
-          "FAS (Finance Managment Solution)",
-          "IVRS Service",
-          "Miscall Service",
-        ],
-      },
-    ],
-    isCurrentEmployer: true,
-  },
-];
+export default Journey;
