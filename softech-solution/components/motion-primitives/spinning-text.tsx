@@ -2,7 +2,6 @@
 import { cn } from "@/app/lib/utils";
 import { motion, Transition, Variants } from "motion/react";
 import React, { CSSProperties } from "react";
-
 export type SpinningTextProps = {
   children: string;
   style?: CSSProperties;
@@ -11,18 +10,16 @@ export type SpinningTextProps = {
   reverse?: boolean;
   fontSize?: number;
   radius?: number;
-  transition?: Transition;
+  transition?: any;
   variants?: {
     container?: Variants;
     item?: Variants;
   };
 };
-
 const BASE_TRANSITION = {
   repeat: Infinity,
   ease: "linear",
 };
-
 const BASE_ITEM_VARIANTS = {
   hidden: {
     opacity: 1,
@@ -31,7 +28,6 @@ const BASE_ITEM_VARIANTS = {
     opacity: 1,
   },
 };
-
 export function SpinningText({
   children,
   duration = 10,
@@ -61,7 +57,6 @@ export function SpinningText({
     ...BASE_ITEM_VARIANTS,
     ...variants?.item,
   };
-
   return (
     <motion.div
       className={cn("relative", className)}
