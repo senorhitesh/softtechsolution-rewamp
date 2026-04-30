@@ -275,44 +275,6 @@ class App {
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
-    const defaultItems = [
-      {
-        image: `https://picsum.photos/seed/1/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/3/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/4/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/5/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/16/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/17/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/8/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/9/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/10/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/21/800/600?grayscale`,
-      },
-      {
-        image: `https://picsum.photos/seed/12/800/600?grayscale`,
-      },
-    ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
