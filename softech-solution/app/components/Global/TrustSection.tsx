@@ -13,7 +13,7 @@ const TrustSection = () => {
           <InfiniteSliderBasic />{" "}
         </div>
 
-        <Journey />
+        {/* <Journey /> */}
       </div>
     </div>
   );

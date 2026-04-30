@@ -1,99 +1,315 @@
-import React from "react";
+import SOFTTECH from "@/public/logosts.png";
+import Image from "next/image";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  ArrowUpRight,
+  MessageSquare,
+  Globe,
+  ShieldCheck,
+  CheckCircle2,
+} from "lucide-react";
+const footerSections = [
+  {
+    title: "Services",
+    links: [
+      "Whatsapp Bot & API",
+      "SMS Solution",
+      "Miscall Solution",
+      "IVR Solution",
+      "Rich Communication Services",
+      "SSL Certificate",
+      "Web Hosting",
+      "Domain",
+      "Web Development",
+      "G Suite",
+      "Bulk Email",
+      "Software Development",
+    ],
+  },
+  {
+    title: "Products",
+    links: [
+      "CMS",
+      "LMS",
+      "E-kyc",
+      "Video Kyc",
+      "Kyc Validation",
+      "PFMS Automation",
+      "API eMandate",
+      "Host 2 Host Automation",
+      "NACH Application",
+      "PDF DigiSign Tools",
+      "CTS",
+      "PPS",
+    ],
+  },
+  {
+    title: "Solutions",
+    links: [
+      "Telecom",
+      "Fintech",
+      "Digital Transformation",
+      "Legacy Modernization",
+    ],
+  },
+  {
+    title: "Resources",
+    links: ["Blogs", "Case Studies", "Ask Our Experts", "Careers", "Reseller"],
+  },
+];
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-100 text-gray-700 px-6 md:px-16 py-10">
-      {/* Top section */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-        {/* Solutions */}
-        <div>
-          <h4 className="text-xs font-semibold text-gray-400 mb-3 tracking-wide">
-            SOLUTIONS
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Telecom
-            </li>
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Fintech
-            </li>
-          </ul>
+    <footer className="bg-[#0a0a0a] text-gray-300 py-12 font-sans">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Top Section: Branding & Links */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pb-12 border-b border-gray-800">
+          {/* Logo & About Column */}
+          <div className="col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="text-white text-2xl font-bold tracking-tight">
+                <Image src={SOFTTECH} alt="Minded" />
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed mb-6 text-gray-400">
+              Innovative technology solutions for telecom and fintech
+              industries, delivering robust infrastructure and modern enterprise
+              tools.
+            </p>
+            <div className="space-y-3">
+              <a
+                href="#contact"
+                className="flex items-center gap-2 text-white hover:text-brand transition-colors group"
+              >
+                Contact Us{" "}
+                <ArrowUpRight
+                  size={16}
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                />
+              </a>
+              <div className="text-xs text-gray-500 mt-4">
+                <span className="block uppercase tracking-widest font-semibold mb-1">
+                  GST-IN
+                </span>
+                24ACUFS8893B1ZH
+              </div>
+            </div>
+          </div>
+
+          {/* Dynamic Link Columns */}
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h3 className="text-white font-semibold mb-6 uppercase text-xs tracking-widest">
+                {section.title}
+              </h3>
+              <ul className="space-y-3 text-sm">
+                {section.links.map((link) => (
+                  <li key={link}>
+                    <a
+                      href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="hover:text-white transition-colors"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Resources */}
-        <div>
-          <h4 className="text-xs font-semibold text-gray-400 mb-3 tracking-wide">
-            RESOURCES
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Blogs
-            </li>
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Case Studies
-            </li>
-          </ul>
+        {/* Middle Section: Contact Details (Reference Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8 border-b border-gray-800">
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-gray-900 rounded-lg">
+              <MapPin size={20} className="text-brand" />
+            </div>
+            <div>
+              <p className="text-xs uppercase text-gray-500 font-bold mb-1">
+                Visit Us
+              </p>
+              <p className="text-sm leading-snug">
+                404, 4th Floor, Satyam Complex, CG Road,
+                <br />
+                Ahmedabad, Gujarat - 380052
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-gray-900 rounded-lg">
+              <Mail size={20} className="text-brand" />
+            </div>
+            <div>
+              <p className="text-xs uppercase text-gray-500 font-bold mb-1">
+                Email Us
+              </p>
+              <a
+                href="mailto:info@soft-techsolutions.com"
+                className="text-sm hover:text-white"
+              >
+                info@soft-techsolutions.com
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-gray-900 rounded-lg">
+              <MessageSquare size={20} className="text-brand" />
+            </div>
+            <div>
+              <p className="text-xs uppercase text-gray-500 font-bold mb-1">
+                Support
+              </p>
+              <p className="text-sm">MS Teams: sales.softtech</p>
+            </div>
+          </div>
         </div>
 
-        {/* Help */}
-        <div>
-          <h4 className="text-xs font-semibold text-gray-400 mb-3 tracking-wide">
-            HELP
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Contact us
-            </li>
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Ask Our Experts
-            </li>
-          </ul>
-        </div>
+        {/* Bottom Section: Copyright & Socials */}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 gap-6">
+          <div className="text-xs text-gray-500 order-2 md:order-1">
+            <p>
+              © 2014 - {currentYear} Soft-tech Solutions. All rights reserved.
+            </p>
+            <div className="flex gap-4 mt-2">
+              <a href="#" className="hover:text-gray-300">
+                T&C
+              </a>
+              <a href="#" className="hover:text-gray-300">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-gray-300">
+                Sitemap
+              </a>
+            </div>
+          </div>
 
-        {/* Social */}
-        <div>
-          <h4 className="text-xs font-semibold text-gray-400 mb-3 tracking-wide">
-            SOCIAL
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:underline hover:text-black cursor-pointer">
-              LinkedIn
-            </li>
-            <li className="hover:underline hover:text-black cursor-pointer">
-              Facebook
-            </li>
-            <li className="hover:underline hover:text-black cursor-pointer">
+          <div className="flex items-center gap-4 order-1 md:order-2">
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 hover:bg-brand transition-colors"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.00294 0C5.24552 0 4.14662 0.00387774 3.93301 0.0215999C3.16193 0.0857128 2.68212 0.207156 2.15938 0.467478C1.75653 0.667579 1.43882 0.899519 1.12526 1.22466C0.55422 1.8176 0.20813 2.54707 0.0828436 3.41419C0.021935 3.83515 0.00421266 3.921 0.000613795 6.07122C-0.000767244 6.78796 0.000613795 7.73124 0.000613795 8.99646C0.000613795 12.7519 0.0047637 13.85 0.0227648 14.0632C0.0850613 14.8137 0.202728 15.2859 0.451914 15.8024C0.928135 16.7911 1.83765 17.5333 2.90914 17.8103C3.28015 17.9058 3.68992 17.9585 4.21598 17.9834C4.43886 17.9931 6.71058 18 8.98369 18C11.2568 18 13.5299 17.9972 13.7473 17.9862C14.3564 17.9575 14.7101 17.91 15.1012 17.8089C16.1796 17.5306 17.0725 16.7994 17.5584 15.7969C17.8027 15.2928 17.9266 14.8026 17.9827 14.0913C17.9949 13.9362 18 11.4635 18 8.99412C18 6.5243 17.9945 4.05615 17.9823 3.90106C17.9255 3.17823 17.8016 2.6922 17.5494 2.17846C17.3424 1.75791 17.1126 1.44385 16.779 1.12274C16.1836 0.553892 15.4554 0.207707 14.5877 0.082529C14.1673 0.0217361 14.0835 0.00373493 11.9322 0H9.00294Z"
+                  fill="url(#paint0_radial_173_11)"
+                />
+                <path
+                  d="M9.00294 0C5.24552 0 4.14662 0.00387774 3.93301 0.0215999C3.16193 0.0857128 2.68212 0.207156 2.15938 0.467478C1.75653 0.667579 1.43882 0.899519 1.12526 1.22466C0.55422 1.8176 0.20813 2.54707 0.0828436 3.41419C0.021935 3.83515 0.00421266 3.921 0.000613795 6.07122C-0.000767244 6.78796 0.000613795 7.73124 0.000613795 8.99646C0.000613795 12.7519 0.0047637 13.85 0.0227648 14.0632C0.0850613 14.8137 0.202728 15.2859 0.451914 15.8024C0.928135 16.7911 1.83765 17.5333 2.90914 17.8103C3.28015 17.9058 3.68992 17.9585 4.21598 17.9834C4.43886 17.9931 6.71058 18 8.98369 18C11.2568 18 13.5299 17.9972 13.7473 17.9862C14.3564 17.9575 14.7101 17.91 15.1012 17.8089C16.1796 17.5306 17.0725 16.7994 17.5584 15.7969C17.8027 15.2928 17.9266 14.8026 17.9827 14.0913C17.9949 13.9362 18 11.4635 18 8.99412C18 6.5243 17.9945 4.05615 17.9823 3.90106C17.9255 3.17823 17.8016 2.6922 17.5494 2.17846C17.3424 1.75791 17.1126 1.44385 16.779 1.12274C16.1836 0.553892 15.4554 0.207707 14.5877 0.082529C14.1673 0.0217361 14.0835 0.00373493 11.9322 0H9.00294Z"
+                  fill="url(#paint1_radial_173_11)"
+                />
+                <path
+                  d="M9.00294 0C5.24552 0 4.14662 0.00387774 3.93301 0.0215999C3.16193 0.0857128 2.68212 0.207156 2.15938 0.467478C1.75653 0.667579 1.43882 0.899519 1.12526 1.22466C0.55422 1.8176 0.20813 2.54707 0.0828436 3.41419C0.021935 3.83515 0.00421266 3.921 0.000613795 6.07122C-0.000767244 6.78796 0.000613795 7.73124 0.000613795 8.99646C0.000613795 12.7519 0.0047637 13.85 0.0227648 14.0632C0.0850613 14.8137 0.202728 15.2859 0.451914 15.8024C0.928135 16.7911 1.83765 17.5333 2.90914 17.8103C3.28015 17.9058 3.68992 17.9585 4.21598 17.9834C4.43886 17.9931 6.71058 18 8.98369 18C11.2568 18 13.5299 17.9972 13.7473 17.9862C14.3564 17.9575 14.7101 17.91 15.1012 17.8089C16.1796 17.5306 17.0725 16.7994 17.5584 15.7969C17.8027 15.2928 17.9266 14.8026 17.9827 14.0913C17.9949 13.9362 18 11.4635 18 8.99412C18 6.5243 17.9945 4.05615 17.9823 3.90106C17.9255 3.17823 17.8016 2.6922 17.5494 2.17846C17.3424 1.75791 17.1126 1.44385 16.779 1.12274C16.1836 0.553892 15.4554 0.207707 14.5877 0.082529C14.1673 0.0217361 14.0835 0.00373493 11.9322 0H9.00294Z"
+                  fill="url(#paint2_radial_173_11)"
+                />
+                <path
+                  d="M9.00294 0C5.24552 0 4.14662 0.00387774 3.93301 0.0215999C3.16193 0.0857128 2.68212 0.207156 2.15938 0.467478C1.75653 0.667579 1.43882 0.899519 1.12526 1.22466C0.55422 1.8176 0.20813 2.54707 0.0828436 3.41419C0.021935 3.83515 0.00421266 3.921 0.000613795 6.07122C-0.000767244 6.78796 0.000613795 7.73124 0.000613795 8.99646C0.000613795 12.7519 0.0047637 13.85 0.0227648 14.0632C0.0850613 14.8137 0.202728 15.2859 0.451914 15.8024C0.928135 16.7911 1.83765 17.5333 2.90914 17.8103C3.28015 17.9058 3.68992 17.9585 4.21598 17.9834C4.43886 17.9931 6.71058 18 8.98369 18C11.2568 18 13.5299 17.9972 13.7473 17.9862C14.3564 17.9575 14.7101 17.91 15.1012 17.8089C16.1796 17.5306 17.0725 16.7994 17.5584 15.7969C17.8027 15.2928 17.9266 14.8026 17.9827 14.0913C17.9949 13.9362 18 11.4635 18 8.99412C18 6.5243 17.9945 4.05615 17.9823 3.90106C17.9255 3.17823 17.8016 2.6922 17.5494 2.17846C17.3424 1.75791 17.1126 1.44385 16.779 1.12274C16.1836 0.553892 15.4554 0.207707 14.5877 0.082529C14.1673 0.0217361 14.0835 0.00373493 11.9322 0H9.00294Z"
+                  fill="url(#paint3_radial_173_11)"
+                />
+                <path
+                  d="M9.00364 2.31152C7.18606 2.31152 6.95796 2.31946 6.24408 2.35193C5.53161 2.38453 5.04528 2.49724 4.61975 2.66263C4.17958 2.83343 3.80619 3.06192 3.4342 3.43378C3.06193 3.8055 2.83326 4.17861 2.66177 4.61832C2.49584 5.04368 2.38291 5.52977 2.35084 6.24144C2.31891 6.95478 2.31055 7.18286 2.31055 8.99909C2.31055 10.8153 2.31864 11.0426 2.35098 11.7559C2.38375 12.4678 2.49655 12.9538 2.6619 13.379C2.83298 13.8189 3.06164 14.192 3.43377 14.5637C3.80563 14.9357 4.17902 15.1647 4.61891 15.3356C5.04472 15.5009 5.53119 15.6136 6.24352 15.6463C6.9574 15.6787 7.18536 15.6867 9.0028 15.6867C10.8205 15.6867 11.0479 15.6787 11.7618 15.6462C12.4743 15.6136 12.9612 15.5009 13.387 15.3355C13.827 15.1647 14.1998 14.9357 14.5717 14.5637C14.944 14.192 15.1726 13.8189 15.3441 13.3792C15.5086 12.9538 15.6216 12.4677 15.655 11.756C15.6871 11.0427 15.6955 10.8153 15.6955 8.99909C15.6955 7.18285 15.6871 6.95493 15.655 6.24158C15.6216 5.52963 15.5086 5.04368 15.3441 4.61846C15.1726 4.17861 14.944 3.8055 14.5717 3.43378C14.1994 3.06178 13.8271 2.83329 13.3866 2.66262C12.9599 2.49724 12.4733 2.38453 11.7608 2.35193C11.0469 2.31946 10.8197 2.31152 9.00155 2.31152H9.00364ZM8.40326 3.51668C8.58145 3.5164 8.78027 3.51668 9.00364 3.51668C10.7905 3.51668 11.0023 3.52309 11.708 3.55513C12.3605 3.58495 12.7146 3.6939 12.9506 3.78543C13.2629 3.90664 13.4855 4.05154 13.7196 4.28561C13.9539 4.51968 14.0989 4.7426 14.2205 5.05468C14.3121 5.29013 14.4212 5.64402 14.4509 6.29606C14.483 7.00104 14.49 7.21281 14.49 8.99756C14.49 10.7823 14.483 10.9941 14.4509 11.6991C14.4211 12.3511 14.3121 12.705 14.2205 12.9404C14.0992 13.2525 13.9539 13.4747 13.7196 13.7087C13.4854 13.9427 13.263 14.0876 12.9506 14.2088C12.7149 14.3008 12.3605 14.4095 11.708 14.4393C11.0025 14.4713 10.7905 14.4783 9.00364 14.4783C7.21659 14.4783 7.0048 14.4713 6.29929 14.4393C5.64678 14.4092 5.29263 14.3002 5.05658 14.2087C4.74426 14.0875 4.52117 13.9426 4.28694 13.7085C4.0527 13.4745 3.9077 13.2521 3.78611 12.9399C3.6945 12.7044 3.58533 12.3505 3.55564 11.6985C3.52357 10.9935 3.51715 10.7817 3.51715 8.99588C3.51715 7.21003 3.52357 6.99936 3.55564 6.29439C3.58548 5.64235 3.6945 5.28847 3.78611 5.05273C3.90741 4.74064 4.0527 4.51772 4.28694 4.28366C4.52117 4.04959 4.74426 3.9047 5.05658 3.78321C5.29249 3.69125 5.64678 3.58258 6.29929 3.55262C6.91668 3.52476 7.15594 3.5164 8.40326 3.515L8.40326 3.51668ZM12.5761 4.62709C12.1327 4.62709 11.7729 4.98613 11.7729 5.42932C11.7729 5.87237 12.1327 6.23183 12.5761 6.23183C13.0194 6.23183 13.3792 5.87237 13.3792 5.42932C13.3792 4.98627 13.0194 4.62682 12.5761 4.62682L12.5761 4.62709ZM9.00364 5.56474C7.1056 5.56474 5.56675 7.10246 5.56675 8.99909C5.56675 10.8957 7.1056 12.4327 9.00364 12.4327C10.9017 12.4327 12.44 10.8957 12.44 8.99909C12.44 7.10246 10.9015 5.56474 9.0035 5.56474H9.00364ZM9.00364 6.7699C10.2356 6.7699 11.2345 7.76788 11.2345 8.99909C11.2345 10.2302 10.2356 11.2283 9.00364 11.2283C7.77152 11.2283 6.77279 10.2302 6.77279 8.99909C6.77279 7.76788 7.77152 6.7699 9.00364 6.7699Z"
+                  fill="white"
+                />
+                <defs>
+                  <radialGradient
+                    id="paint0_radial_173_11"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientTransform="matrix(-11.0692 3.12177 -2.24912 -7.97481 17.4188 8.43682)"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FF005F" />
+                    <stop offset="1" stop-color="#FC01D8" />
+                  </radialGradient>
+                  <radialGradient
+                    id="paint1_radial_173_11"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(4.78111 19.3864) rotate(-90) scale(14.3679 15.2441)"
+                  >
+                    <stop stop-color="#FFCC00" />
+                    <stop offset="0.1242" stop-color="#FFCC00" />
+                    <stop offset="0.5672" stop-color="#FE4A05" />
+                    <stop offset="0.6942" stop-color="#FF0F3F" />
+                    <stop offset="1" stop-color="#FE0657" stopOpacity="0" />
+                  </radialGradient>
+                  <radialGradient
+                    id="paint2_radial_173_11"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientTransform="matrix(2.98227 -5.13855 6.68981 3.8826 9.45485 17.7461)"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FFCC00" />
+                    <stop offset="1" stop-color="#FFCC00" stopOpacity="0" />
+                  </radialGradient>
+                  <radialGradient
+                    id="paint3_radial_173_11"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientTransform="matrix(-10.9477 3.08268 -1.05 -3.72994 2.44221 0.732955)"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#780CFF" />
+                    <stop offset="1" stop-color="#820BFF" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+              </svg>
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 hover:bg-brand transition-colors"
+            >
+              <svg
+                width="18"
+                height="15"
+                viewBox="0 0 18 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_173_2)">
+                  <path
+                    d="M17.1167 14.0314C17.1553 14.0317 17.1936 14.0243 17.2292 14.0097C17.2648 13.995 17.2969 13.9733 17.3235 13.946C17.3502 13.9186 17.3708 13.8863 17.3841 13.8508C17.3975 13.8154 17.4032 13.7777 17.4009 13.74C17.4009 13.5333 17.2734 13.4346 17.0117 13.4346H16.5889V14.5165H16.7479V14.0449H16.9433L16.9478 14.0506L17.2511 14.5165H17.4212L17.0949 14.0343L17.1167 14.0314ZM16.9328 13.923H16.7484V13.5572H16.9821C17.1028 13.5572 17.2405 13.5765 17.2405 13.731C17.2405 13.9087 17.1012 13.923 16.9318 13.923"
+                    fill="#0A66C2"
+                  />
+                  <path
+                    d="M12.9719 12.844H10.7161V9.34617C10.7161 8.51207 10.7011 7.43833 9.54289 7.43833C8.36801 7.43833 8.18825 8.34711 8.18825 9.28544V12.8438H5.93246V5.65078H8.09801V6.63378H8.12833C8.34505 6.26688 8.65822 5.96505 9.03448 5.76044C9.41074 5.55583 9.836 5.4561 10.265 5.47186C12.5513 5.47186 12.9729 6.9609 12.9729 8.89806L12.9719 12.844ZM3.38719 4.66755C3.12828 4.66759 2.87517 4.59162 2.65987 4.44923C2.44457 4.30685 2.27676 4.10444 2.17764 3.86762C2.07852 3.63079 2.05254 3.37018 2.10301 3.11874C2.15347 2.8673 2.27811 2.63632 2.46115 2.45502C2.64419 2.27372 2.87742 2.15023 3.13135 2.10017C3.38527 2.05011 3.64848 2.07573 3.88769 2.17379C4.12691 2.27185 4.33139 2.43795 4.47527 2.65108C4.61915 2.8642 4.69597 3.11479 4.69602 3.37115C4.69605 3.54136 4.66221 3.70992 4.59645 3.86719C4.5307 4.02446 4.43431 4.16736 4.31277 4.28774C4.19124 4.40813 4.04693 4.50363 3.88812 4.56879C3.72931 4.63396 3.5591 4.66752 3.38719 4.66755ZM4.51508 12.844H2.25695V5.65078H4.51508V12.844ZM14.0965 0.00102701H1.12343C0.828975 -0.00226316 0.545235 0.110331 0.334582 0.314067C0.123928 0.517803 0.00359363 0.796013 0 1.08756V13.9862C0.00347064 14.2779 0.123734 14.5563 0.334381 14.7602C0.545027 14.9641 0.828829 15.077 1.12343 15.0739H14.0965C14.3917 15.0775 14.6763 14.965 14.8878 14.7611C15.0992 14.5571 15.2203 14.2784 15.2244 13.9862V1.08663C15.2202 0.794505 15.099 0.515978 14.8876 0.312247C14.6761 0.108516 14.3915 -0.00375682 14.0965 9.59845e-05"
+                    fill="#0A66C2"
+                  />
+                  <path
+                    d="M16.9522 12.9531C16.6778 12.9557 16.4156 13.0644 16.223 13.2554C16.0304 13.4464 15.923 13.7042 15.9243 13.9724C15.9256 14.2406 16.0356 14.4974 16.2301 14.6866C16.4246 14.8758 16.6878 14.982 16.9622 14.982C17.2366 14.982 17.4998 14.8758 17.6943 14.6866C17.8888 14.4974 17.9987 14.2406 18 13.9724C18.0013 13.7042 17.8939 13.4464 17.7013 13.2554C17.5087 13.0644 17.2465 12.9557 16.9721 12.9531H16.9522ZM16.9522 14.8658C16.7722 14.8688 16.5954 14.8195 16.4441 14.7242C16.2928 14.6289 16.1738 14.4919 16.1022 14.3305C16.0305 14.1691 16.0095 13.9905 16.0416 13.8174C16.0738 13.6443 16.1578 13.4844 16.2829 13.358C16.4081 13.2315 16.5687 13.1442 16.7447 13.107C16.9206 13.0698 17.1039 13.0844 17.2713 13.149C17.4387 13.2137 17.5827 13.3253 17.6852 13.47C17.7877 13.6146 17.844 13.7857 17.847 13.9616C17.847 13.9667 17.847 13.9715 17.847 13.9765C17.852 14.2073 17.7631 14.4306 17.5997 14.5973C17.4364 14.7639 17.212 14.8604 16.9759 14.8654H16.9524"
+                    fill="#0A66C2"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_173_2">
+                    <rect width="18" height="15" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-900 hover:bg-brand transition-colors text-xs font-bold"
+            >
               X
-            </li>
-            <li className="hover:underline hover:text-black cursor-pointer">
-              YouTube
-            </li>
-          </ul>
-        </div>
-
-        {/* Reach Us */}
-        <div>
-          <h4 className="text-xs font-semibold text-gray-400 mb-3 tracking-wide">
-            REACH US
-          </h4>
-          <p className="text-sm leading-relaxed mb-2">
-            404, 4th Floor, Satyam Complex, Near Satyam Circle, CG Road ,
-            Ahmedabad, Gujarat - 380052.
-          </p>
-          <p className="text-sm">info@soft-techsolutions.com</p>
-        </div>
-      </div>
-
-      {/* Bottom section */}
-      <div className="mt-10 pt-6 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
-        <span>© 2026 Soft-tech Solutions</span>
-
-        <div className="flex gap-4">
-          <span className="hover:text-gray-700 cursor-pointer">
-            Privacy policy
-          </span>
-          <span className="hover:text-gray-700 cursor-pointer">Copyright</span>
-          <span className="hover:text-gray-700 cursor-pointer">Disclaimer</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

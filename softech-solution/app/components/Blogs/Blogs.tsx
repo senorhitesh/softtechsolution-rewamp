@@ -59,12 +59,12 @@ const Blogs = () => {
               </p>
             </div>
 
-              <PositionAwareButton title={"Explore All"} />
+            <PositionAwareButton title={"Explore All"} />
           </div>
 
           {/* Right Section: Carousel */}
           <div className="lg:col-span-2 relative w-full">
-            <Carousel>
+            <Carousel className="overflow-hidden">
               <CarouselContent className="-ml-4">
                 <CarouselItem className="basis-full sm:basis-1/2 pl-4">
                   <BlogCard

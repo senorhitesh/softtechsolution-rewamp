@@ -1,6 +1,6 @@
 import bg from "@/public/coolgradientbg.png";
 import Image from "next/image";
-import LeftPart from "./LeftPart";
+import LeftPart from "@/app/components/FinalCta/LeftPart";
 
 const FinalCta = () => {
   return (
@@ -24,6 +24,6 @@ const FinalCta = () => {
       </div>
     </div>
   );
-};
+}
 
 export default FinalCta;

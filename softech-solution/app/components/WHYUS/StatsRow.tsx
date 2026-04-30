@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { User, Workflow, Locate, WavesArrowDownIcon } from "lucide-react";
+import { Smile, Workflow, Locate, WavesArrowDownIcon } from "lucide-react";
 type Stat = {
   label: string;
   target: number;
@@ -19,7 +19,7 @@ const STATS: Stat[] = [
     target: 1200,
     color: "text-emerald-600",
     bgColor: "bg-emerald-50",
-    icon: <User />,
+    icon: <Smile className="text-emerald-600 " />,
     delta: "+18% YoY",
     sparkline: "0,18 8,14 16,10 24,6 32,8 40,2",
   },
@@ -28,7 +28,7 @@ const STATS: Stat[] = [
     target: 7000,
     color: "text-amber-600",
     bgColor: "bg-amber-50",
-    icon: <WavesArrowDownIcon />,
+    icon: <WavesArrowDownIcon className="text-amber-600" />,
     delta: "+31% YoY",
     sparkline: "0,16 8,12 16,14 24,6 32,4 40,1",
   },
@@ -37,7 +37,7 @@ const STATS: Stat[] = [
     target: 50,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
-    icon: <Workflow />,
+    icon: <Workflow className="text-purple-600" />,
     delta: "+12 new",
     sparkline: "0,18 8,15 16,11 24,8 32,5 40,3",
   },
@@ -46,7 +46,7 @@ const STATS: Stat[] = [
     target: 26,
     color: "text-indigo-600",
     bgColor: "bg-indigo-50",
-    icon: <Locate />,
+    icon: <Locate className="text-indigo-600" />,
     delta: "All major states",
     sparkline: "0,16 8,14 16,10 24,7 32,5 40,3",
   },
@@ -104,7 +104,7 @@ const StatCard = ({
 
   return (
     <div
-      className="relative overflow-hidden bg-white border border-neutral-200 rounded-xl p-4
+      className="relative overflow-hidden bg-white border  border-neutral-200 rounded-xl p-4
         opacity-0 translate-y-2 transition-all duration-500"
       style={{
         animationDelay: `${index * 80}ms`,

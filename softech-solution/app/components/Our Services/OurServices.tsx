@@ -456,7 +456,7 @@ const OurServices = () => {
             onClick={() => setActiveTab(tab)}
             className={`text-xs font-medium px-4 py-2 rounded-full border transition-all duration-150 tracking-wide cursor-pointer ${
               activeTab === tab
-                ? "bg-gray-900 text-white border-transparent"
+                ? "bg-brand2 text-white border-transparent"
                 : "bg-white text-gray-500 border-gray-200 hover:border-gray-400 hover:text-gray-800"
             }`}
           >

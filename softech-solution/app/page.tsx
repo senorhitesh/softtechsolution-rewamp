@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       }
     >
-      <div className="flex flex-col    w-full overflow-x-hidden">
+      <div className="flex flex-col  w-full overflow-x-hidden">
         <Navbar />
         <HeroSection />
         <OurServices />
@@ -26,10 +26,7 @@ export default function Home() {
         <TrustSection />
         <Blogs />
         <FinalCta />
-        <div className="w-full ">
-          {" "}
-          <Partners />
-        </div>
+        <Partners />
         <Footer />
       </div>
     </Suspense>

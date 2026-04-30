@@ -26,13 +26,6 @@ export const GlideText = memo(function GlideText({
   );
 });
 
-// ─── memo on StarBorder ───────────────────────────────────────────────────────
-// WHY: Same reason — it receives static props (color, speed) that never
-// change. Without memo it re-renders every time its parent does.
-// NOTE: This only works if StarBorder is a component you own/can export memo'd.
-// If it's a library component you can't modify, wrap it yourself:
-//   const MemoStarBorder = memo(StarBorder);
-
 const MainTextContent = () => {
   const headingWords1 = useMemo(() => ["We", "Support"], []);
   const headingWords2 = useMemo(() => ["of", "your", "business"], []);
@@ -115,12 +108,7 @@ const MainTextContent = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
       >
-        <StarBorder
-          as="button"
-          className="custom-class"
-          color="magenta"
-          speed="2s"
-        >
+        <StarBorder as="button" className="custom-class" speed="2s">
           Contact Us <ArrowUpRightIcon size={20} />
         </StarBorder>
       </motion.div>

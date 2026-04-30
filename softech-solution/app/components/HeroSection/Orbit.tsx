@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Logo from "@/public/image.png";
-import items from "@/lib/data";
+import items from "@/app/lib/data";
 const DURATION = 40;
 import { Tilt } from "@/components/motion-primitives/tilt";
 import { useMemo } from "react";
@@ -18,8 +18,12 @@ export default function RotatingOrbit() {
   );
   const radius = useMemo(() => [150, 248], []);
   return (
-    <Tilt rotationFactor={8} isRevese>
-      <div className="relative flex items-center justify-center w-full h-160   ">
+    <Tilt
+      className="hover:scale-96 transition duration-150"
+      rotationFactor={8}
+      isRevese
+    >
+      <div className="relative flex items-center  justify-center w-full h-160   ">
         <style>{`
         @keyframes cwSpin  { to { transform: rotate(360deg);  } }
         @keyframes ccwSpin { to { transform: rotate(-360deg); } }
