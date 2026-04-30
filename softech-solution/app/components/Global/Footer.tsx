@@ -1,15 +1,6 @@
 import SOFTTECH from "@/public/logosts.png";
 import Image from "next/image";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  ArrowUpRight,
-  MessageSquare,
-  Globe,
-  ShieldCheck,
-  CheckCircle2,
-} from "lucide-react";
+import { Mail, MapPin, ArrowUpRight, MessageSquare } from "lucide-react";
 const footerSections = [
   {
     title: "Services",
@@ -229,8 +220,8 @@ const Footer = () => {
                     gradientTransform="matrix(-11.0692 3.12177 -2.24912 -7.97481 17.4188 8.43682)"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#FF005F" />
-                    <stop offset="1" stop-color="#FC01D8" />
+                    <stop stopColor="#FF005F" />
+                    <stop offset="1" stopColor="#FC01D8" />
                   </radialGradient>
                   <radialGradient
                     id="paint1_radial_173_11"
@@ -240,11 +231,11 @@ const Footer = () => {
                     gradientUnits="userSpaceOnUse"
                     gradientTransform="translate(4.78111 19.3864) rotate(-90) scale(14.3679 15.2441)"
                   >
-                    <stop stop-color="#FFCC00" />
-                    <stop offset="0.1242" stop-color="#FFCC00" />
-                    <stop offset="0.5672" stop-color="#FE4A05" />
-                    <stop offset="0.6942" stop-color="#FF0F3F" />
-                    <stop offset="1" stop-color="#FE0657" stopOpacity="0" />
+                    <stop stopColor="#FFCC00" />
+                    <stop offset="0.1242" stopColor="#FFCC00" />
+                    <stop offset="0.5672" stopColor="#FE4A05" />
+                    <stop offset="0.6942" stopColor="#FF0F3F" />
+                    <stop offset="1" stopColor="#FE0657" stopOpacity="0" />
                   </radialGradient>
                   <radialGradient
                     id="paint2_radial_173_11"
@@ -254,8 +245,8 @@ const Footer = () => {
                     gradientTransform="matrix(2.98227 -5.13855 6.68981 3.8826 9.45485 17.7461)"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#FFCC00" />
-                    <stop offset="1" stop-color="#FFCC00" stopOpacity="0" />
+                    <stop stopColor="#FFCC00" />
+                    <stop offset="1" stopColor="#FFCC00" stopOpacity="0" />
                   </radialGradient>
                   <radialGradient
                     id="paint3_radial_173_11"
@@ -265,8 +256,8 @@ const Footer = () => {
                     gradientTransform="matrix(-10.9477 3.08268 -1.05 -3.72994 2.44221 0.732955)"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#780CFF" />
-                    <stop offset="1" stop-color="#820BFF" stopOpacity="0" />
+                    <stop stopColor="#780CFF" />
+                    <stop offset="1" stopColor="#820BFF" stopOpacity="0" />
                   </radialGradient>
                 </defs>
               </svg>

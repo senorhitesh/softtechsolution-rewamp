@@ -505,3 +505,53 @@ backgroundSize: "10px 10px",
     @apply font-sans;
   }
 }
+
+
+.technologycard:hover .dhrandhar {
+  animation: squeezeElastic 600ms ease-out;
+}
+
+@keyframes squeezeElastic {
+  0% {
+    transform: skewX(0deg) scaleX(1);
+  }
+  30% {
+    transform: skewX(12deg) scaleX(1.08);
+  }
+  55% {
+    transform: skewX(-18deg) scaleX(0.96);
+  }
+  75% {
+    transform: skewX(3deg) scaleX(1.02);
+  }
+  100% {
+    transform: skewX(0deg) scaleX(1);
+  }
+}
+
+
+.technologycard {
+  position: relative;
+  overflow: hidden;
+}
+
+.technologycard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #06448f; /* your brand color */
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.technologycard:hover::before {
+  transform: scaleY(1);
+}
+
+/* keep content above fill */
+.technologycard > * {
+  position: relative;
+  z-index: 1;
+}
