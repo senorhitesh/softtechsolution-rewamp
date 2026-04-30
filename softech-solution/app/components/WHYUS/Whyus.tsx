@@ -84,7 +84,9 @@ function CubesIcon() {
 
 function FiveGIcon() {
   return (
-    <div className={` absolu w-24 h-34  `}>
+    <div
+      className={` absolute right-0 -bottom-25   w-44 h-44 pointer-events-none `}
+    >
       <Image src={scalibility} alt="scalibility" />
     </div>
   );
