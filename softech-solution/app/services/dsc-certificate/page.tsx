@@ -7,13 +7,11 @@ import { CheckCircle2 } from "lucide-react";
 
 const WhatsappPage = () => {
   const benefits = [
-    "Custom software development helps to optimize your business processes.",
-    "You have the option to decide what kind of software development technology to use to design your own app.",
-    "Proper testing of your custom software ensures you have a reliable IT tool that can grow your business.",
-    "Customized software can be easily changed – New processes and technologies can be integrated into your existing software as and when marketing trends change.",
-    "Customized software development, you have the power to decide which data-security technology or protocol is ideally suited for your business software.",
-    "Highly developed infrastructure and favorable business environment",
-    "Our company is always aware of updates in Custom software development and the latest trends to develop robust software applications",
+    "Digital Certificate solutions.",
+    "Digital Signing Solutions.",
+    "Digital Certificate Authentication System.",
+    "Trusted Time Stamping Services.",
+    "offers variety of other services including Tax filing, MCA, e-tendering Services etc.",
   ];
 
   return (
@@ -29,28 +27,30 @@ const WhatsappPage = () => {
           <div className="lg:col-span-8 flex flex-col gap-8">
             <section>
               <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Take your development to the next level{" "}
-                <span className="text-brand2">Software Development</span>
+                Certifiy your documnets with{" "}
+                <span className="text-brand2">
+                  {" "}
+                  Digital Signature Certificate
+                </span>
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p>
-                  SOFT-TECH Solutions provide customize software development
-                  services for your business. We have full stack developer team
-                  to provide software development services on various
-                  development platform.
-                </p>
-                <p>
-                  <strong>SOFT-TECH Solutions</strong> provides customized
-                  software development services tailored to your business needs.
-                  Our full-stack development team delivers reliable solutions
-                  across a wide range of platforms.
+                  SOFT-TECH Solutions provide Digital Certificate Services from
+                  Certifying Authority (CA) authorised by the Controller of
+                  Certifying Authority (CCA) for issuance of Digital Signature
+                  Certificates in India. We are provides Class 1, Class 2 and
+                  Class 3 Digital Signature Certificates (DSC) along with
+                  digital signatures & encrypiton for specific needs such as
+                  NACH File Signing, PFMS, NSDL PAN Number Verification, Income
+                  Tax filing, MCA, e-tendering, e-procurement and Foreign Trade
+                  etc..
                 </p>
               </div>
             </section>
 
             <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                Why Choose Software Development ?
+                Features of Digital Certificate
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, i) => (
@@ -64,7 +64,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage="DSC Certificate" />
         </div>
       </main>
 

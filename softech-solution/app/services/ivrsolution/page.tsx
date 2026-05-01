@@ -2,35 +2,32 @@ import Navbar from "@/app/components/Global/Navbar";
 import Footer from "@/app/components/Global/Footer";
 import Header from "@/app/components/Services/WhatsappPage/header";
 import QuickLinkServices from "@/app/components/Global/QuickLinkServices";
-
+import arrow from "@/public/arrow left.png";
 import { CheckCircle2 } from "lucide-react";
-
+import roadmap from "@/public/roadmap.png";
+import Image from "next/image";
 const WhatsappPage = () => {
   const benefits = [
-    "Custom software development helps to optimize your business processes.",
-    "You have the option to decide what kind of software development technology to use to design your own app.",
-    "Proper testing of your custom software ensures you have a reliable IT tool that can grow your business.",
-    "Customized software can be easily changed – New processes and technologies can be integrated into your existing software as and when marketing trends change.",
-    "Customized software development, you have the power to decide which data-security technology or protocol is ideally suited for your business software.",
-    "Highly developed infrastructure and favorable business environment",
-    "Our company is always aware of updates in Custom software development and the latest trends to develop robust software applications",
+    "Don’t make your customer confused. Have Superior voice quality to reduce disputes to a minimum.",
+    "Get your customer data organized. Create better customer environment and increase productivity.",
+    "Greet your customers with company anthem. Put Music on hold and improve brand image. With expanding business verticals, manage heavy call flow easily with scalable IVR.",
+    "Record and monitor calls to analyze call quality, agent performance and more with few clicks.",
+    "Keep your phone system going for 24 x 7. Even capture after hour calls and never miss a lead.",
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 overflow-x-hidden w-full">
       <Navbar />
-      <Header title={"Software Development"} />
+      <Header title={"IVR Solution"} />
 
       <main className="max-w-7xl mx-auto px-4 py-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Sidebar: Quick Links */}
-
           {/* Main Content Area */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             <section>
               <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Take your development to the next level{" "}
-                <span className="text-brand2">Software Development</span>
+                Fasten your work with{" "}
+                <span className="text-brand2">IVR Solutions.</span>
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p>
@@ -47,10 +44,28 @@ const WhatsappPage = () => {
                 </p>
               </div>
             </section>
-
+            <section>
+              <h2 className="text-2xl font-bold text-slate-800 mb-6 tracking-tight">
+                How IVR works?
+              </h2>
+              {/* steps */}
+              <div className="flex flex-col gap-8 ">
+                <Image
+                  src={roadmap}
+                  alt="jaishree"
+                  className="pointer-events-none"
+                />
+                <p className="text-neutral-700">
+                  The IVR system in the latter case eliminates the need for a
+                  switchboard operator to answer incoming calls.This instance
+                  often presents a caller with a menu of options and can attempt
+                  to answer frequently asked questions.
+                </p>
+              </div>
+            </section>
             <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                Why Choose Software Development ?
+                Why Choose IVR ?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, i) => (
@@ -64,7 +79,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage={"IVR Solution"} />
         </div>
       </main>
 

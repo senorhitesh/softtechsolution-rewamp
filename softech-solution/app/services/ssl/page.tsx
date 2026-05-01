@@ -7,13 +7,9 @@ import { CheckCircle2 } from "lucide-react";
 
 const WhatsappPage = () => {
   const benefits = [
-    "Custom software development helps to optimize your business processes.",
-    "You have the option to decide what kind of software development technology to use to design your own app.",
-    "Proper testing of your custom software ensures you have a reliable IT tool that can grow your business.",
-    "Customized software can be easily changed – New processes and technologies can be integrated into your existing software as and when marketing trends change.",
-    "Customized software development, you have the power to decide which data-security technology or protocol is ideally suited for your business software.",
-    "Highly developed infrastructure and favorable business environment",
-    "Our company is always aware of updates in Custom software development and the latest trends to develop robust software applications",
+    "The SSL protocol is used by millions of online business to protect their customers, ensuring their online transactions remain confidential.",
+    "A web page should use encryption when it expects users to submit confidential data, including personal information, passwords, or credit card details.",
+    "All web browsers have the ability to interact with secured sites so long as the site's certificate is issued by a trusted CA.",
   ];
 
   return (
@@ -29,28 +25,54 @@ const WhatsappPage = () => {
           <div className="lg:col-span-8 flex flex-col gap-8">
             <section>
               <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Take your development to the next level{" "}
-                <span className="text-brand2">Software Development</span>
+                Take your Encription to the next level{" "}
+                <span className="text-brand2">SSL CERTIFICATE</span>
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p>
-                  SOFT-TECH Solutions provide customize software development
-                  services for your business. We have full stack developer team
-                  to provide software development services on various
-                  development platform.
+                  SOFT-TECH Solutions provide SSL certificates of various CA
+                  (Certificate authority), SSL is a standard security protocol
+                  for establishing encrypted links between a web server and a
+                  browser in an online communication. The usage of SSL
+                  technology ensures that all data transmitted between the web
+                  server and browser remains encrypted.
                 </p>
                 <p>
-                  <strong>SOFT-TECH Solutions</strong> provides customized
-                  software development services tailored to your business needs.
-                  Our full-stack development team delivers reliable solutions
-                  across a wide range of platforms.
+                  An SSL certificate is necessary to create Secure HTTP
+                  connection. You need to give all details about the identity of
+                  your website and your company as and when you choose to
+                  activate SSL on your web server. Following this, two
+                  cryptographic keys are created - a Private Key and a Public
+                  Key. Typically, SSL is used to secure credit card
+                  transactions, data transfer and logins, and more recently is
+                  becoming the norm when securing browsing of social media
+                  sites.
                 </p>
               </div>
             </section>
-
+            <section className="flex gap-4 flex-col">
+              <h2 className="text-xl font-semibold ">
+                What is SSL Certificate?
+              </h2>
+              <p className="text-neutral-800">
+                SSL Certificates are small data files that digitally bind a
+                cryptographic key to an organization’s details. When installed
+                on a web server, it activates the padlock and the https protocol
+                and allows secure connections from a web server to a browser.
+                Typically, SSL is used to secure credit card transactions, data
+                transfer and logins, and more recently is becoming the norm when
+                securing browsing of social media sites.
+              </p>
+              <p className="text-neutral-700">
+                {" "}
+                Example :{" "}
+                <span className=" font-medium text-orange-700">https</span>
+                ://soft-techsolutions.com
+              </p>
+            </section>
             <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                Why Choose Software Development ?
+                Why Choose SSL(Secure Sockets Layer) ?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, i) => (
@@ -64,7 +86,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage="SSL Certificate" />
         </div>
       </main>
 

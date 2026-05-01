@@ -7,13 +7,11 @@ import { CheckCircle2 } from "lucide-react";
 
 const WhatsappPage = () => {
   const benefits = [
-    "Custom software development helps to optimize your business processes.",
-    "You have the option to decide what kind of software development technology to use to design your own app.",
-    "Proper testing of your custom software ensures you have a reliable IT tool that can grow your business.",
-    "Customized software can be easily changed – New processes and technologies can be integrated into your existing software as and when marketing trends change.",
-    "Customized software development, you have the power to decide which data-security technology or protocol is ideally suited for your business software.",
-    "Highly developed infrastructure and favorable business environment",
-    "Our company is always aware of updates in Custom software development and the latest trends to develop robust software applications",
+    "Custom spam and inbound mail filtering tools, to complement powerful spam filters that automatically work with no up-front configuration.",
+    "Custom outbound mail filtering tools to prevent sensitive information from being distributed.",
+    "Custom password length requirements and visual strength indicators to help employees pick secure passwords.",
+    "Enforced SSL connections with G Suite to ensure secure HTTPS access.",
+    "Optional email archiving, having unlimited retention option.",
   ];
 
   return (
@@ -23,34 +21,34 @@ const WhatsappPage = () => {
 
       <main className="max-w-7xl mx-auto px-4 py-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Sidebar: Quick Links */}
-
           {/* Main Content Area */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             <section>
               <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Take your development to the next level{" "}
-                <span className="text-brand2">Software Development</span>
+                Improvised your{" "}
+                <span className="text-brand2">G-Suite Service</span>
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p>
-                  SOFT-TECH Solutions provide customize software development
-                  services for your business. We have full stack developer team
-                  to provide software development services on various
-                  development platform.
-                </p>
-                <p>
-                  <strong>SOFT-TECH Solutions</strong> provides customized
-                  software development services tailored to your business needs.
-                  Our full-stack development team delivers reliable solutions
-                  across a wide range of platforms.
+                  SOFT-TECH Solutions provide G Suite email services. G Suite
+                  Email chosen by millions of businesses, from small companies
+                  to the Fortune. Millions of People Trust G Suite Email
+                  Collaboration. G Suite is a suite of cloud computing,
+                  productivity and collaboration tools, software and products
+                  developed by Google Cloud. G Suite has the tools to boost your
+                  productivity by my one of best mail service, collaborate on
+                  files in real time, quickly find space on everybody's
+                  calendar, and take meetings from anywhere. G-Suite Gmail keeps
+                  you updated with real-time message notifications, and safely
+                  stores your important emails and data. IT admins can centrally
+                  manage accounts across your organization and devices.
                 </p>
               </div>
             </section>
 
             <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                Why Choose Software Development ?
+                Why Choose G-Suite ?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, i) => (
@@ -64,7 +62,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage="G Suite" />
         </div>
       </main>
 

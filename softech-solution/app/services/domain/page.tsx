@@ -7,13 +7,11 @@ import { CheckCircle2 } from "lucide-react";
 
 const WhatsappPage = () => {
   const benefits = [
-    "Custom software development helps to optimize your business processes.",
-    "You have the option to decide what kind of software development technology to use to design your own app.",
-    "Proper testing of your custom software ensures you have a reliable IT tool that can grow your business.",
+    "Easy-to-Remember Domain Names-A good domain name will be easy to remember, making your website easy to find.",
+    "Improved Search Engine Rankings-Domain name that relates to your business or organization improves your ranking in search engines..",
+    "Establish a Business Identity-Domain names should tell people a bit about your business. Create your business with a domain name helps establish your business' identity and industry.",
     "Customized software can be easily changed – New processes and technologies can be integrated into your existing software as and when marketing trends change.",
-    "Customized software development, you have the power to decide which data-security technology or protocol is ideally suited for your business software.",
-    "Highly developed infrastructure and favorable business environment",
-    "Our company is always aware of updates in Custom software development and the latest trends to develop robust software applications",
+    "Establish a Type of Organization-You can really distinguish yourself from similar-sounding companies in different industries or your competitors.",
   ];
 
   return (
@@ -29,21 +27,34 @@ const WhatsappPage = () => {
           <div className="lg:col-span-8 flex flex-col gap-8">
             <section>
               <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Take your development to the next level{" "}
-                <span className="text-brand2">Software Development</span>
+                Give your website a Domain with{" "}
+                <span className="text-brand2">DOMAIN SERVICE</span>
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p>
-                  SOFT-TECH Solutions provide customize software development
-                  services for your business. We have full stack developer team
-                  to provide software development services on various
-                  development platform.
+                  SOFT-TECH is domain services provider in india. Domain name is
+                  the address where Internet users can access your
+                  website.Domain names are used to identify one or more IP
+                  addresses. For example, the domain name soft-techsolutions.com
+                  represents about a dozen IP addresses. Domain names are used
+                  in URLs to identify particular Web pages.
                 </p>
                 <p>
-                  <strong>SOFT-TECH Solutions</strong> provides customized
-                  software development services tailored to your business needs.
-                  Our full-stack development team delivers reliable solutions
-                  across a wide range of platforms.
+                  For example, in the URL
+                  <span className="text-orange-500 font-medium">
+                    https://soft-techsolutions.com/service/domain
+                  </span>
+                  , the domain name is soft-techsolutions.com There are only a
+                  limited number of such domains. For example:
+                </p>
+                <p className="px-8">
+                  <ul className="list-disc">
+                    <li>.com - Commercial business</li>
+                    <li>.gov - Government agencies</li>
+                    <li>.org - Organizations (nonprofit)</li>
+                    <li>.net - Network organizations</li>
+                    <li>.in - India</li>
+                  </ul>
                 </p>
               </div>
             </section>
@@ -64,7 +75,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage="Domain" />
         </div>
       </main>
 

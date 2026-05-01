@@ -64,7 +64,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage={"Software Development"} />
         </div>
       </main>
 

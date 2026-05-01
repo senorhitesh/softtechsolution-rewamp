@@ -83,7 +83,7 @@ const WhatsappPage = () => {
             </section>
           </div>
           {/* Sidebar: Quick Links */}
-          <QuickLinkServices />
+          <QuickLinkServices activepage={"Web Development"} />
         </div>
       </main>
 

@@ -7,13 +7,12 @@ import { CheckCircle2 } from "lucide-react";
 
 const WhatsappPage = () => {
   const benefits = [
-    "Custom software development helps to optimize your business processes.",
-    "You have the option to decide what kind of software development technology to use to design your own app.",
-    "Proper testing of your custom software ensures you have a reliable IT tool that can grow your business.",
-    "Customized software can be easily changed – New processes and technologies can be integrated into your existing software as and when marketing trends change.",
-    "Customized software development, you have the power to decide which data-security technology or protocol is ideally suited for your business software.",
-    "Highly developed infrastructure and favorable business environment",
-    "Our company is always aware of updates in Custom software development and the latest trends to develop robust software applications",
+    "When a user makes a transaction or purchase, they get a transactional email confirming that purchase.",
+    "When a user abandons their shopping cart, they get an email reminding them to come back and complete the purchase.",
+    "When a user signs up for any web application, they get a transactional email thanking them for joining.",
+    "User get Monthly Bank A/c transaction Statement Emails.",
+    "You might also hear transactional emails referred to as automatic, triggered, personalized and one-to-one email.",
+    "SOFT-TECH Solutions provide transactional email services API for integration with your Core System.",
   ];
 
   return (
@@ -23,21 +22,25 @@ const WhatsappPage = () => {
 
       <main className="max-w-7xl mx-auto px-4 py-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Sidebar: Quick Links */}
-
           {/* Main Content Area */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             <section>
               <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Take your development to the next level{" "}
-                <span className="text-brand2">Software Development</span>
+                Send high-volume emails quickly with{" "}
+                <span className="text-brand2">Bulk Email Services</span>
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p>
-                  SOFT-TECH Solutions provide customize software development
-                  services for your business. We have full stack developer team
-                  to provide software development services on various
-                  development platform.
+                  While every business needs an email service platform that can
+                  send out transactional emails and marketing mails, not every
+                  business needs the marketing functions that SmartEmail can
+                  provide. For those businesses that are looking for API based
+                  eMail solution, SOFT-TECH SmartEmail Service provide seamless
+                  integration with your core software. Integrate SmartEmail in
+                  just a few minutes and start scheduling, sending, and tracking
+                  emails via SMTP relay or our Smart API Service. By using our
+                  email analytics to retrieve your campaign’s statistics
+                  including opens, clicks, bounces, and more.
                 </p>
                 <p>
                   <strong>SOFT-TECH Solutions</strong> provides customized
@@ -50,7 +53,7 @@ const WhatsappPage = () => {
 
             <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
               <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                Why Choose Software Development ?
+                Why Bulk Mail ?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, i) => (
@@ -64,7 +67,7 @@ const WhatsappPage = () => {
               </div>
             </section>
           </div>
-          <QuickLinkServices />
+          <QuickLinkServices activepage="Bulk Email" />
         </div>
       </main>
 
