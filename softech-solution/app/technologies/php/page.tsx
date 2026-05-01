@@ -1,48 +1,59 @@
 import React from 'react';
+import Navbar from "@/app/components/Global/Navbar";
+import Footer from "@/app/components/Global/Footer";
+import Header from "@/app/components/Services/WhatsappPage/header";
+import QuickLinkTechnologies from "@/app/components/Global/QuickLinkTechnologies";
+import { CheckCircle2 } from "lucide-react";
 
 const Page = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-brand2 mb-4">
-            PHP Development
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Leverage the power of PHP to build dynamic, secure, and highly functional web applications.
-          </p>
-        </div>
+  const benefits = [
+    "Runs smoothly on almost all web servers and operating systems.",
+    "Open-source nature and vast hosting options keep project costs manageable.",
+    "Supported by powerful frameworks like Laravel and Symfony for rapid development.",
+    "Decades of resources, libraries, and community support available at your fingertips.",
+  ];
 
-        <div className="bg-card shadow-lg rounded-2xl overflow-hidden border border-border">
-          <div className="p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Why Choose PHP?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Wide Compatibility</h3>
-                <p className="text-sm text-muted-foreground">Runs smoothly on almost all web servers and operating systems.</p>
+  return (
+    <div className="flex flex-col min-h-screen bg-slate-50 overflow-x-hidden w-full">
+      <Navbar />
+      <Header title={"PHP Development"} />
+
+      <main className="max-w-7xl mx-auto px-4 py-16 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Main Content Area */}
+          <div className="lg:col-span-8 flex flex-col gap-8">
+            <section>
+              <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                PHP Development
+              </h2>
+              <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
+                <p>
+                  Leverage the power of PHP to build dynamic, secure, and highly functional web applications.
+                </p>
               </div>
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Cost Effective</h3>
-                <p className="text-sm text-muted-foreground">Open-source nature and vast hosting options keep project costs manageable.</p>
+            </section>
+
+            <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">
+                Why Choose PHP?
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {benefits.map((benefit, i) => (
+                  <div key={i} className="flex gap-3 items-start p-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 shrink-0" />
+                    <p className="text-slate-600 hover:text-neutral-900 hover:font-medium transition duration-100 text-sm leading-snug">
+                      {benefit}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Strong Frameworks</h3>
-                <p className="text-sm text-muted-foreground">Supported by powerful frameworks like Laravel and Symfony for rapid development.</p>
-              </div>
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Massive Community</h3>
-                <p className="text-sm text-muted-foreground">Decades of resources, libraries, and community support available at your fingertips.</p>
-              </div>
-            </div>
+            </section>
           </div>
-          <div className="bg-brand2 p-6 md:p-8 text-center text-white">
-            <h3 className="text-xl font-bold mb-4">Ready to start your PHP project?</h3>
-            <button className="px-8 py-3 bg-white text-brand2 font-semibold rounded-full hover:bg-brand hover:text-white transition-colors duration-300 shadow-md">
-              Contact Us Today
-            </button>
-          </div>
+          <QuickLinkTechnologies activepage="PHP" />
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };

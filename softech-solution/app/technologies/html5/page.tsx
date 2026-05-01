@@ -1,48 +1,59 @@
 import React from 'react';
+import Navbar from "@/app/components/Global/Navbar";
+import Footer from "@/app/components/Global/Footer";
+import Header from "@/app/components/Services/WhatsappPage/header";
+import QuickLinkTechnologies from "@/app/components/Global/QuickLinkTechnologies";
+import { CheckCircle2 } from "lucide-react";
 
 const Page = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-brand2 mb-4">
-            HTML5 Development
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Leverage the foundation of the modern web with HTML5 to build semantic, accessible, and media-rich web experiences.
-          </p>
-        </div>
+  const benefits = [
+    "Supported across all modern browsers and devices seamlessly.",
+    "Native support for audio and video elements without needing external plugins.",
+    "Semantic tags that help search engines understand your content better.",
+    "Local storage features allowing applications to function without an internet connection.",
+  ];
 
-        <div className="bg-card shadow-lg rounded-2xl overflow-hidden border border-border">
-          <div className="p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Why Choose HTML5?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Universal Standard</h3>
-                <p className="text-sm text-muted-foreground">Supported across all modern browsers and devices seamlessly.</p>
+  return (
+    <div className="flex flex-col min-h-screen bg-slate-50 overflow-x-hidden w-full">
+      <Navbar />
+      <Header title={"HTML5 Development"} />
+
+      <main className="max-w-7xl mx-auto px-4 py-16 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Main Content Area */}
+          <div className="lg:col-span-8 flex flex-col gap-8">
+            <section>
+              <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                HTML5 Development
+              </h2>
+              <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
+                <p>
+                  Leverage the foundation of the modern web with HTML5 to build semantic, accessible, and media-rich web experiences.
+                </p>
               </div>
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Multimedia Support</h3>
-                <p className="text-sm text-muted-foreground">Native support for audio and video elements without needing external plugins.</p>
+            </section>
+
+            <section className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">
+                Why Choose HTML5?
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {benefits.map((benefit, i) => (
+                  <div key={i} className="flex gap-3 items-start p-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 mt-1 shrink-0" />
+                    <p className="text-slate-600 hover:text-neutral-900 hover:font-medium transition duration-100 text-sm leading-snug">
+                      {benefit}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">SEO Optimization</h3>
-                <p className="text-sm text-muted-foreground">Semantic tags that help search engines understand your content better.</p>
-              </div>
-              <div className="bg-muted/30 p-4 rounded-xl border border-border technologycard">
-                <h3 className="font-semibold text-lg text-brand2 mb-2 dhrandhar">Offline Capabilities</h3>
-                <p className="text-sm text-muted-foreground">Local storage features allowing applications to function without an internet connection.</p>
-              </div>
-            </div>
+            </section>
           </div>
-          <div className="bg-brand2 p-6 md:p-8 text-center text-white">
-            <h3 className="text-xl font-bold mb-4">Ready to build your web presence?</h3>
-            <button className="px-8 py-3 bg-white text-brand2 font-semibold rounded-full hover:bg-brand hover:text-white transition-colors duration-300 shadow-md">
-              Contact Us Today
-            </button>
-          </div>
+          <QuickLinkTechnologies activepage="HTML5" />
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };
